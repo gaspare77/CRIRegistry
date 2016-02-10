@@ -1,0 +1,34 @@
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+#include "CRIRegistryHtmlFrame.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+CRIRegistryHtmlFrame::CRIRegistryHtmlFrame( wxWindow* parent ):
+HtmlFrame( parent )
+{
+    SetIcon( wxICON(UsersIcon) );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+void CRIRegistryHtmlFrame::OnIconize( wxIconizeEvent& event )
+{
+    Close();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+bool CRIRegistryHtmlFrame::Show( const wxString& url )
+{
+    wxFrame::Show();
+    m_html->SetRelatedFrame( this, "%s");
+    m_html->SetRelatedStatusBar( 0 );
+    m_html->LoadPage( url );
+    return true;
+}
+

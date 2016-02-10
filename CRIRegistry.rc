@@ -1,0 +1,35 @@
+/////////////////////////////////////////////////////////////////////////////
+// Includes WX library default resources 
+//
+#include "wx/msw/wx.rc"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ICONS
+//
+aaaa                        ICON    "res/Icon_cri.ico"
+ProgramIcon                 ICON    "res/Icon_cri.ico"
+AmbulanceIcon               ICON    "res/Icon_Ambulance.ico"
+AmbulanceNotAvailableIcon	ICON	"res/Icon_AmbulanceNotAvailable.ico"
+CalendarIcon                ICON    "res/Icon_Calendar.ico"
+ServiceIcon					ICON    "res/Icon_Service.ico"
+UsersIcon                   ICON    "res/Icon_Users.ico"
+AddressBookIcon             ICON    "res/Icon_AddressBook.ico"
+SearchIcon                  ICON    "res/Icon_Search.ico"
+EditIcon					ICON	"res/Icon_Edit.ico"
+SQLQueryIcon				ICON	"res/Icon_SQLQuery.ico"
+CrewIcon					ICON	"res/Icon_Shift.ico"
+PatientIcon                 ICON    "res/Icon_Patient.ico"
+ShiftIcon					ICON	"res/Icon_Shift.ico"
+PresenceIcon				ICON	"res/Icon_Presence.ico"
+OptionsIcon                 ICON    "res/Icon_Options.ico"
+ComunicationIcon            ICON    "res/Icon_Comunication.ico"
+
+ShiftStatusIcon000          ICON    "res/Icon_ShiftStatus000.ico"
+
+ServiceStatusIcon000        ICON    "res/Icon_ServiceStatus000.ico"
+ServiceStatusIcon001		ICON	"res/Icon_ServiceStatus001.ico"
+ServiceStatusIcon002		ICON	"res/Icon_ServiceStatus002.ico"
+
+ComunicationStatusIcon000   ICON    "res/Icon_ComunicationStatus000.ico"

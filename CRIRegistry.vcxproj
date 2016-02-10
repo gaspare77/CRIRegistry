@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release Dll|Win32">
+      <Configuration>Release Dll</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D2AE5C66-EE53-46AB-AD62-FBC0CF7A6029}</ProjectGuid>
+    <RootNamespace>CRIRegistry</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.$(Configuration)/\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">.$(Configuration)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.$(Configuration)/\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">.$(Configuration)/\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">false</LinkIncremental>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</EmbedManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">false</EmbedManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">.$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">.$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>.\.Release/CRIRegistry.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>CSmtp\openssl-0.9.8l\inc32;$(WXWIN)\lib\vc_lib\msw;$(WXWIN)\include;$(WXPDF)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__WXMSW__;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.$(Configuration)/CRIRegistry.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.$(Configuration)/</AssemblerListingLocation>
+      <ObjectFileName>.$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>.$(Configuration)/</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalOptions>/D_CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__WXMSW__;_WINDOWS;NDEBUG;NOPCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0410</Culture>
+      <AdditionalIncludeDirectories>$(WXWIN)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>.$(Configuration)/%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>wxmsw28.lib;wxzlib.lib;wxregex.lib;wxpng.lib;wxjpeg.lib;wxtiff.lib;wxexpat.lib;wxpdfdoc.lib;odbc32.lib;odbccp32.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.$(Configuration)/CRIRegistry.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>CSmtp\openssl-0.9.8l\out32;$(WXWIN)/lib/vc_lib;$(WXPDF)/lib/vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>.$(Configuration)/$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <ProgramDatabaseFile>.$(Configuration)/CRIRegistry.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>.$(Configuration)/$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\.Release/CRIRegistry.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">
+    <Midl>
+      <TypeLibraryName>.\.Release/CRIRegistry.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>CSmtp\openssl-0.9.8l\inc32;$(WXWIN)\lib\vc_dll\msw;$(WXWIN)\include;$(WXPDF)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__WXMSW__;NDEBUG;WXUSINGDLL;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderOutputFile>.$(Configuration)/CRIRegistry.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.$(Configuration)/</AssemblerListingLocation>
+      <ObjectFileName>.$(Configuration)/</ObjectFileName>
+      <ProgramDataBaseFileName>.$(Configuration)/</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)</XMLDocumentationFileName>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>__WXMSW__;_WINDOWS;NDEBUG;NOPCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0410</Culture>
+      <AdditionalIncludeDirectories>$(WXWIN)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>.$(Configuration)/%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;wxmsw28.lib;wxzlib.lib;wxregex.lib;wxpng.lib;wxjpeg.lib;wxtiff.lib;wxexpat.lib;wxpdfdoc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.$(Configuration)/CRIRegistry.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>CSmtp\openssl-0.9.8l\out32;$(WXWIN)/lib/vc_dll;$(WXPDF)/lib/vc_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>.$(Configuration)/$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ProgramDatabaseFile>.$(Configuration)/CRIRegistry.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>.$(Configuration)/$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\.Release/CRIRegistry.bsc</OutputFile>
+    </Bscmake>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">
+    <Link>
+      <OutputFile>.$(Configuration)/CRIRegistry.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CRIRegistryAddCrewDlg.h" />
+    <ClInclude Include="CRIRegistryCodeSelectionDlg.h" />
+    <ClInclude Include="CRIRegistryComunicationDlg.h" />
+    <ClInclude Include="CRIRegistryHtmlFrame.h" />
+    <ClInclude Include="CRIRegistryMailAddressDlg.h" />
+    <ClInclude Include="CRIRegistryMailingListDlg.h" />
+    <ClInclude Include="CRIRegistryOptions.h" />
+    <ClInclude Include="CRIRegistryOptionsDlg.h" />
+    <ClInclude Include="CRIRegistryProgressDlg.h" />
+    <ClInclude Include="CRIRegistrySelectUserDisponibilityDlg.h" />
+    <ClInclude Include="CRIRegistryVersion.h" />
+    <ClInclude Include="CSmtp\base64.h" />
+    <ClInclude Include="CSmtp\CSmtp.h" />
+    <ClInclude Include="CSmtp\openssl-0.9.8l\inc32\openssl\md5.h" />
+    <ClInclude Include="dbClass\CComunication.h" />
+    <ClInclude Include="dbClass\CDinamic.h" />
+    <ClInclude Include="dbClass\CFleet.h" />
+    <ClInclude Include="dbClass\CHospital.h" />
+    <ClInclude Include="dbClass\CPresence.h" />
+    <ClInclude Include="CRIRegistryAddFieldsDlg.h" />
+    <ClInclude Include="CRIRegistryAddPatient118Dlg.h" />
+    <ClInclude Include="CRIRegistryAddPatientDlg.h" />
+    <ClInclude Include="CRIRegistryApp.h" />
+    <ClInclude Include="CRIRegistryConstant.h" />
+    <ClInclude Include="CRIRegistryCrewDlg.h" />
+    <ClInclude Include="CRIRegistryFleetDlg.h" />
+    <ClInclude Include="CRIRegistryGUIs.h" />
+    <ClInclude Include="CRIRegistryHospitalDlg.h" />
+    <ClInclude Include="CRIRegistryMainFrame.h" />
+    <ClInclude Include="CRIRegistryPatientDlg.h" />
+    <ClInclude Include="CRIRegistryPresenceDlg.h" />
+    <ClInclude Include="CRIRegistrySearchDlg.h" />
+    <ClInclude Include="CRIRegistrySelectDateRangeDlg.h" />
+    <ClInclude Include="CRIRegistryServiceDlg.h" />
+    <ClInclude Include="CRIRegistryShiftDlg.h" />
+    <ClInclude Include="CRIRegistrySQLQueryDlg.h" />
+    <ClInclude Include="CRIRegistryWizardDlg.h" />
+    <ClInclude Include="CRIRegistryWizardPagesGUIs.h" />
+    <ClInclude Include="dbClass\CService.h" />
+    <ClInclude Include="dbClass\CServiceCrew.h" />
+    <ClInclude Include="dbClass\CServicePatient.h" />
+    <ClInclude Include="dbClass\CShift.h" />
+    <ClInclude Include="dbClass\CTreatment.h" />
+    <ClInclude Include="dbClass\CUser.h" />
+    <ClInclude Include="db\dbClass.h" />
+    <ClInclude Include="db\dbField.h" />
+    <ClInclude Include="db\dbSingleton.h" />
+    <ClInclude Include="MyMd5.h" />
+    <ClInclude Include="MyFunctions.h" />
+    <ClInclude Include="MyWizardPage.h" />
+    <ClInclude Include="OdbcW\OdbcW.h" />
+    <ClInclude Include="OdbcW\OdbcWInternal.h" />
+    <ClInclude Include="OdbcW\OdbcWSetup.h" />
+    <ClInclude Include="Setting.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="TxtCtrl118Code.h" />
+    <ClInclude Include="UsersManager.h" />
+    <ClInclude Include="UsersManagerChangeUsersPwdDlg.h" />
+    <ClInclude Include="UsersManagerDlg.h" />
+    <ClInclude Include="UsersManagerLogInDlg.h" />
+    <ClInclude Include="UsersManagerSetUsersPwdDlg.h" />
+    <ClInclude Include="WizardPages\WizardPagesData.h" />
+    <ClInclude Include="WizardPages\WizardPagesEquipaggio.h" />
+    <ClInclude Include="WizardPages\WizardPagesFine.h" />
+    <ClInclude Include="WizardPages\WizardPagesGruppo.h" />
+    <ClInclude Include="WizardPages\WizardPagesInfoServizio118.h" />
+    <ClInclude Include="WizardPages\WizardPagesLuogoIntervento.h" />
+    <ClInclude Include="WizardPages\WizardPagesLuogoIntervento118.h" />
+    <ClInclude Include="WizardPages\WizardPagesLuogoTrasportato.h" />
+    <ClInclude Include="WizardPages\WizardPagesPaziente.h" />
+    <ClInclude Include="WizardPages\WizardPagesPazientiTrasportati.h" />
+    <ClInclude Include="WizardPages\WizardPagesPazientiTrasportati118.h" />
+    <ClInclude Include="WizardPages\WizardPagesRichiedente.h" />
+    <ClInclude Include="WizardPages\WizardPagesRichiesto.h" />
+    <ClInclude Include="WizardPages\WizardPagesUtilizzoMezzo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CRIRegistryAddCrewDlg.cpp" />
+    <ClCompile Include="CRIRegistryCodeSelectionDlg.cpp" />
+    <ClCompile Include="CRIRegistryComunicationDlg.cpp" />
+    <ClCompile Include="CRIRegistryHtmlFrame.cpp" />
+    <ClCompile Include="CRIRegistryMailAddressDlg.cpp" />
+    <ClCompile Include="CRIRegistryMailingListDlg.cpp" />
+    <ClCompile Include="CRIRegistryOptions.cpp" />
+    <ClCompile Include="CRIRegistryOptionsDlg.cpp" />
+    <ClCompile Include="CRIRegistryProgressDlg.cpp" />
+    <ClCompile Include="CRIRegistrySearchDlg.cpp" />
+    <ClCompile Include="CRIRegistrySelectUserDisponibilityDlg.cpp" />
+    <ClCompile Include="CSmtp\base64.cpp" />
+    <ClCompile Include="CSmtp\CSmtp.cpp" />
+    <ClCompile Include="CSmtp\md5.cpp" />
+    <ClCompile Include="dbClass\CComunication.cpp" />
+    <ClCompile Include="dbClass\CDinamic.cpp" />
+    <ClCompile Include="dbClass\CFleet.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="dbClass\CHospital.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="dbClass\CPresence.cpp" />
+    <ClCompile Include="CRIRegistryAddFieldsDlg.cpp" />
+    <ClCompile Include="CRIRegistryAddPatient118Dlg.cpp" />
+    <ClCompile Include="CRIRegistryAddPatientDlg.cpp" />
+    <ClCompile Include="CRIRegistryApp.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCrewDlg.cpp" />
+    <ClCompile Include="CRIRegistryFleetDlg.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryGUIs.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryHospitalDlg.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryMainFrame.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryPatientDlg.cpp" />
+    <ClCompile Include="CRIRegistryPresenceDlg.cpp" />
+    <ClCompile Include="CRIRegistrySelectDateRangeDlg.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryServiceDlg.cpp" />
+    <ClCompile Include="CRIRegistryShiftDlg.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="CRIRegistrySQLQueryDlg.cpp" />
+    <ClCompile Include="CRIRegistryWizardDlg.cpp" />
+    <ClCompile Include="CRIRegistryWizardPagesGUIs.cpp" />
+    <ClCompile Include="dbClass\CService.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="dbClass\CServiceCrew.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="dbClass\CServicePatient.cpp" />
+    <ClCompile Include="dbClass\CShift.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="dbClass\CTreatment.cpp" />
+    <ClCompile Include="dbClass\CUser.cpp" />
+    <ClCompile Include="db\dbClass.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="db\dbField.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="db\dbSingleton.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="MyMd5.cpp" />
+    <ClCompile Include="MyFunctions.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="MyWizardPage.cpp" />
+    <ClCompile Include="OdbcW\OdbcW.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="OdbcW\OdbcW_WIN32.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="OdbcW\OdbcWSetup.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="TxtCtrl118Code.cpp" />
+    <ClCompile Include="UsersManager.cpp" />
+    <ClCompile Include="UsersManagerChangeUsersPwdDlg.cpp" />
+    <ClCompile Include="UsersManagerDlg.cpp" />
+    <ClCompile Include="UsersManagerLogInDlg.cpp" />
+    <ClCompile Include="UsersManagerSetUsersPwdDlg.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesData.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesEquipaggio.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesFine.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesGruppo.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesInfoServizio118.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesLuogoIntervento.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesLuogoIntervento118.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesLuogoTrasportato.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesPaziente.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesPazientiTrasportati.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesPazientiTrasportati118.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesRichiedente.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesRichiesto.cpp" />
+    <ClCompile Include="WizardPages\WizardPagesUtilizzoMezzo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CRIRegistry.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Dll|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
