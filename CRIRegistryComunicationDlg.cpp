@@ -154,6 +154,7 @@ bool CRIRegistryComunicationDlg::UpdateData()
     m_Comunication[FIELD_DESTINATARIO] = m_ComunicazioneTo->GetValue();
     m_Comunication[FIELD_TESTO] = m_Note->GetValue();
     m_Comunication[FIELD_LETTA] = m_Letta->GetValue();
+    m_Comunication[FIELD_PRIVATA] = NeedToSendEmail();
     return true;
 }
 

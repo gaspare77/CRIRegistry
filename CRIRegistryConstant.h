@@ -148,6 +148,7 @@
 #define FIELD_TESTO                         _T("Testo")
 #define FIELD_LETTA                         _T("Letta")
 #define FIELD_EMAIL                         _T("eMail")
+#define FIELD_PRIVATA                       _T("Privata")
 
 // ================================================================================
 //

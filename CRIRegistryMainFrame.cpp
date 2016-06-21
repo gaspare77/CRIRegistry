@@ -2431,7 +2431,11 @@ bool CRIRegistryMainFrame::ShowAllService()
 bool CRIRegistryMainFrame::ShowCurrentComunication()
 {
     wxDateTime start = wxDateTime::Now() - wxTimeSpan::Hours(24);
-    wxString query = wxString::Format( _T("SELECT %s FROM %s WHERE %s>='%s %s' OR %s=0 ORDER BY %s"), 
+    CUser user = UsersManager::Instance()->GetUserLogged();
+    wxString query;
+    if ( user.GetPrivileges() >= RESP_CENTR )
+    {
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE %s>='%s %s' OR %s=0 ORDER BY %s"), 
                                        FIELD_ID,
                                        TABLE_COMUNICAZIONI,
                                        FIELD_INSERITA,
@@ -2439,6 +2443,21 @@ bool CRIRegistryMainFrame::ShowCurrentComunication()
                                        start.FormatISOTime().c_str(),
                                        FIELD_LETTA,
                                        FIELD_INSERITA);
+    }
+    else
+    {
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE (%s>='%s %s' OR %s=0) AND (%s=0 OR %s='%s') ORDER BY %s"), 
+                                       FIELD_ID,
+                                       TABLE_COMUNICAZIONI,
+                                       FIELD_INSERITA,
+                                       start.FormatISODate().c_str(),
+                                       start.FormatISOTime().c_str(),
+                                       FIELD_LETTA,
+                                       FIELD_PRIVATA,
+                                       FIELD_MITTENTE,
+                                       user.GetFullName().c_str(),
+                                       FIELD_INSERITA);
+    }
 
     dbResultSet res;
     if ( !dbSingleton::Instance()->SQLQuery( query, &res ) )
@@ -2478,7 +2497,11 @@ bool CRIRegistryMainFrame::ShowAllComunication()
 
     wxDateTime start = dlg.GetDateStart();
     wxDateTime end = dlg.GetDateEnd();
-    wxString query = wxString::Format( _T("SELECT %s FROM %s WHERE %s>=\'%s %s\' AND %s<=\'%s %s\' ORDER BY %s"), 
+    CUser user = UsersManager::Instance()->GetUserLogged();
+    wxString query;
+    if ( user.GetPrivileges() >= RESP_CENTR )
+    {
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE %s>=\'%s %s\' AND %s<=\'%s %s\' ORDER BY %s"), 
                                        FIELD_ID,
                                        TABLE_COMUNICAZIONI,
                                        FIELD_INSERITA,
@@ -2488,6 +2511,23 @@ bool CRIRegistryMainFrame::ShowAllComunication()
                                        end.FormatISODate().c_str(),
                                        end.FormatISOTime().c_str(),
                                        FIELD_INSERITA );
+    }
+    else
+    {
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE (%s>=\'%s %s\' AND %s<=\'%s %s\') AND (%s=0 OR %s='%s') ORDER BY %s"), 
+                                       FIELD_ID,
+                                       TABLE_COMUNICAZIONI,
+                                       FIELD_INSERITA,
+                                       start.FormatISODate().c_str(),
+                                       start.FormatISOTime().c_str(),
+                                       FIELD_INSERITA,
+                                       end.FormatISODate().c_str(),
+                                       end.FormatISOTime().c_str(),
+                                       FIELD_PRIVATA,
+                                       FIELD_MITTENTE,
+                                       user.GetFullName().c_str(),
+                                       FIELD_INSERITA );
+    }
 
     dbResultSet res;
     if ( !dbSingleton::Instance()->SQLQuery( query, &res ) )

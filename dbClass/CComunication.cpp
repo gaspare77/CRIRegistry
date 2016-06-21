@@ -19,6 +19,7 @@ dbClass( TABLE_COMUNICAZIONI, FIELD_ID )
     dbClass::m_dbRow.Add( FIELD_OGGETTO         , wxEmptyString );
     dbClass::m_dbRow.Add( FIELD_TESTO           , wxEmptyString );
     dbClass::m_dbRow.Add( FIELD_LETTA           , false );
+    dbClass::m_dbRow.Add( FIELD_PRIVATA         , false );
 }
 
 /////////////////////////////////////////////////////////////////////////////
