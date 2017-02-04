@@ -60,12 +60,17 @@ void WizardPagesRichiesto::OnCheck( wxCommandEvent& event )
 		m_Ospedale->SetSelection( -1 );
 		break;
 
+	case ID_ASL:
+		m_Tipo->Append( m_aszTypeOrdinary );
+		m_Ospedale->SetSelection( -1 );
+		break;
+
 	case ID_PARENTI:
 		m_Tipo->Append( m_aszTypeOrdinary );
 		m_Ospedale->SetSelection( -1 );
 		break;
 
-	case ID_ALTRI:
+    case ID_ALTRI:
 		m_Tipo->Append( m_aszTypeOrdinary );
 		m_Ospedale->SetSelection( -1 );
 		break;
@@ -118,6 +123,7 @@ void WizardPagesRichiesto::OnEnter()
 {
 	wxString s=  m_pService->GetField(FIELD_RICHIESTO).GetStringValue();
 	m_radio_118->SetValue( s == szRequestedBy[REQUESTED_BY_118] );
+	m_radio_Asl->SetValue( s == szRequestedBy[REQUESTED_BY_ASL] );
 	m_radio_Parenti->SetValue( s == szRequestedBy[REQUESTED_BY_PARENT] );
 	m_radio_Ospedali->SetValue( s == szRequestedBy[REQUESTED_BY_HOSPITAL] );
 	m_radio_Altri->SetValue( s == szRequestedBy[REQUESTED_BY_OTHER] );
@@ -141,6 +147,11 @@ void WizardPagesRichiesto::OnExit()
 	{
 		eRequest = REQUESTED_BY_PARENT;
 		SetNextPage( m_pPage2 );
+	}
+	else if ( m_radio_Asl->GetValue() )
+	{
+		eRequest = REQUESTED_BY_ASL;
+		SetNextPage( m_pPage1 );
 	}
 	else if ( m_radio_Ospedali->GetValue() )
 	{

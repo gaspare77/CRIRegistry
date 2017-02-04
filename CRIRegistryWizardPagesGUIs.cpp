@@ -281,17 +281,27 @@ Richiesto::Richiesto( wxWindow* parent, wxWindowID id, const wxPoint& pos, const
 	
 	bSizer61->SetMinSize( wxSize( -1,30 ) ); 
 	m_radio_118 = new wxRadioButton( this, ID_118, _("118"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
-	bSizer61->Add( m_radio_118, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer61->Add( m_radio_118, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
 	sbSizer1->Add( bSizer61, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer611;
+	bSizer611 = new wxBoxSizer( wxHORIZONTAL );
+	
+	bSizer611->SetMinSize( wxSize( -1,30 ) ); 
+	m_radio_Asl = new wxRadioButton( this, ID_ASL, _("ASL"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	bSizer611->Add( m_radio_Asl, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	
+	sbSizer1->Add( bSizer611, 1, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer62;
 	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer62->SetMinSize( wxSize( -1,30 ) ); 
 	m_radio_Parenti = new wxRadioButton( this, ID_PARENTI, _("Parenti"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
-	bSizer62->Add( m_radio_Parenti, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer62->Add( m_radio_Parenti, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
 	sbSizer1->Add( bSizer62, 0, wxEXPAND, 5 );
@@ -332,7 +342,7 @@ Richiesto::Richiesto( wxWindow* parent, wxWindowID id, const wxPoint& pos, const
 	
 	bSizer65->SetMinSize( wxSize( -1,30 ) ); 
 	m_radio_ServizioInterno = new wxRadioButton( this, ID_SERVIZIO_INTERNO, _("Servizio Interno"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
-	bSizer65->Add( m_radio_ServizioInterno, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer65->Add( m_radio_ServizioInterno, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
 	sbSizer1->Add( bSizer65, 0, wxEXPAND, 5 );
@@ -366,6 +376,7 @@ Richiesto::Richiesto( wxWindow* parent, wxWindowID id, const wxPoint& pos, const
 	
 	// Connect Events
 	m_radio_118->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
+	m_radio_Asl->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_radio_Parenti->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_radio_Ospedali->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_Ospedale->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Richiesto::OnChoice ), NULL, this );
@@ -379,6 +390,7 @@ Richiesto::~Richiesto()
 {
 	// Disconnect Events
 	m_radio_118->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
+	m_radio_Asl->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_radio_Parenti->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_radio_Ospedali->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Richiesto::OnCheck ), NULL, this );
 	m_Ospedale->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( Richiesto::OnChoice ), NULL, this );

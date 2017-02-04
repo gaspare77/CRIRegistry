@@ -142,6 +142,7 @@ class Richiesto : public MyWizardPage
 		enum
 		{
 			ID_118 = 1000,
+			ID_ASL,
 			ID_PARENTI,
 			ID_OSPEDALI,
 			ID_ALTRI,
@@ -151,6 +152,7 @@ class Richiesto : public MyWizardPage
 		};
 		
 		wxRadioButton* m_radio_118;
+		wxRadioButton* m_radio_Asl;
 		wxRadioButton* m_radio_Parenti;
 		wxRadioButton* m_radio_Ospedali;
 		wxChoice* m_Ospedale;

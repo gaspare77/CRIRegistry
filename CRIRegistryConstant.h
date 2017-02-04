@@ -160,6 +160,7 @@ static const char* szRequestedBy[]=
 {
     _(""),
     _("118"),
+    _("ASL"),
     _("PARENTI"),
     _("OSPEDALI"),
     _("ALTRI"),
@@ -170,6 +171,7 @@ enum eRequestedBy
 {
     UNKNOW_REQUESTED_BY,
     REQUESTED_BY_118,
+    REQUESTED_BY_ASL,
     REQUESTED_BY_PARENT,
     REQUESTED_BY_HOSPITAL,
     REQUESTED_BY_OTHER,

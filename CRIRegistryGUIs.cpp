@@ -2458,6 +2458,9 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_Richiesto_118 = new wxRadioButton( m_panel1, ID_RICHIESTO_118, _("118"), wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	bSizer1651->Add( m_Richiesto_118, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
+	m_Richiesto_Asl = new wxRadioButton( m_panel1, ID_RICHIESTO_ASL, _("ASL"), wxDefaultPosition, wxSize( 150,-1 ), 0 );
+	bSizer1651->Add( m_Richiesto_Asl, 0, wxALL, 5 );
+	
 	m_Richiesto_Ospedali = new wxRadioButton( m_panel1, ID_RICHIESTO_OSPEDALI, _("Ospedali"), wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	bSizer1651->Add( m_Richiesto_Ospedali, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3389,6 +3392,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_OraInizio->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_OraFine->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_118->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
+	m_Richiesto_Asl->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Ospedali->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Parenti->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Altri->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
@@ -3443,6 +3447,7 @@ ServiceRegistryDlg::~ServiceRegistryDlg()
 	m_OraInizio->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_OraFine->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_118->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
+	m_Richiesto_Asl->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Ospedali->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Parenti->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );
 	m_Richiesto_Altri->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( ServiceRegistryDlg::OnCheck ), NULL, this );

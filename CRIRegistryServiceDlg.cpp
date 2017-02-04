@@ -345,6 +345,7 @@ void CRIRegistryServiceDlg::UpdateCtrl()
 	m_OraArrivo->SetValue( m_Service[FIELD_ORAARRIVO].GetDateTimeValue() == EmptyDate ? wxEmptyString : m_Service[FIELD_ORAARRIVO].GetDateTimeValue().Format(FORMAT_TIME) );
     m_OraFine->SetValue( m_Service[FIELD_ORAFINE].GetDateTimeValue() == EmptyDate ? wxEmptyString : m_Service[FIELD_ORAFINE].GetDateTimeValue().Format(FORMAT_TIME) );
 	m_Richiesto_118->SetValue( m_Service[FIELD_RICHIESTO].GetStringValue() == szRequestedBy[REQUESTED_BY_118] );
+	m_Richiesto_Asl->SetValue( m_Service[FIELD_RICHIESTO].GetStringValue() == szRequestedBy[REQUESTED_BY_ASL] );
 	m_Richiesto_Ospedali->SetValue( m_Service[FIELD_RICHIESTO].GetStringValue() == szRequestedBy[REQUESTED_BY_HOSPITAL] );
 	m_Servizio_Interno->SetValue( m_Service[FIELD_RICHIESTO].GetStringValue() == szRequestedBy[REQUESTED_BY_INTERNAL] );
 	m_Richiesto_Parenti->SetValue( m_Service[FIELD_RICHIESTO].GetStringValue() == szRequestedBy[REQUESTED_BY_PARENT] );
@@ -585,6 +586,10 @@ void CRIRegistryServiceDlg::UpdateData()
 	if ( m_Richiesto_118->GetValue() )
 	{
 		m_Service[FIELD_RICHIESTO] = szRequestedBy[REQUESTED_BY_118];
+	}
+	else if ( m_Richiesto_Asl->GetValue() )
+	{
+		m_Service[FIELD_RICHIESTO] = szRequestedBy[REQUESTED_BY_ASL];
 	}
 	else if ( m_Richiesto_Ospedali->GetValue() )
 	{

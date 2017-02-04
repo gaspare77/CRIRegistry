@@ -764,6 +764,7 @@ class ServiceRegistryDlg : public wxDialog
 			ID_ORA_INIZIO,
 			ID_ORA_FINE,
 			ID_RICHIESTO_118,
+			ID_RICHIESTO_ASL,
 			ID_RICHIESTO_OSPEDALI,
 			ID_RICHIESTO_PARENTI,
 			ID_RICHIESTO_ALTRI,
@@ -815,6 +816,7 @@ class ServiceRegistryDlg : public wxDialog
 		wxNotebook* m_notebook;
 		wxPanel* m_panel1;
 		wxRadioButton* m_Richiesto_118;
+		wxRadioButton* m_Richiesto_Asl;
 		wxRadioButton* m_Richiesto_Ospedali;
 		wxRadioButton* m_Richiesto_Parenti;
 		wxRadioButton* m_Richiesto_Altri;
@@ -970,7 +972,7 @@ class ServiceRegistryDlg : public wxDialog
 	
 	public:
 		
-		ServiceRegistryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Servizi Registrati"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,630 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ServiceRegistryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Servizi Registrati"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 900,700 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ServiceRegistryDlg();
 	
 };
