@@ -813,8 +813,7 @@ void CRIRegistryMainFrame::OnChangeUser( wxCommandEvent& event )
         return;
     }
 
-    UsersManager::Instance()->LogIn();
-    AuthenticateUser();
+    LogInUser();
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2441,7 +2440,7 @@ bool CRIRegistryMainFrame::ShowCurrentComunication()
     wxString query;
     if ( user.GetPrivileges() >= RESP_CENTR )
     {
-        query = wxString::Format( _T("SELECT %s FROM %s WHERE %s>='%s %s' OR %s=0 ORDER BY %s"), 
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE (%s>='%s %s' OR %s=0) ORDER BY %s"), 
                                        FIELD_ID,
                                        TABLE_COMUNICAZIONI,
                                        FIELD_INSERITA,
@@ -2452,7 +2451,7 @@ bool CRIRegistryMainFrame::ShowCurrentComunication()
     }
     else
     {
-        query = wxString::Format( _T("SELECT %s FROM %s WHERE (%s>='%s %s' OR %s=0) AND (%s=0 OR %s='%s') ORDER BY %s"), 
+        query = wxString::Format( _T("SELECT %s FROM %s WHERE (%s>='%s %s' OR %s=0) AND (%s=0 OR %s='%s') AND (%s='%s') ORDER BY %s"), 
                                        FIELD_ID,
                                        TABLE_COMUNICAZIONI,
                                        FIELD_INSERITA,
@@ -2462,6 +2461,8 @@ bool CRIRegistryMainFrame::ShowCurrentComunication()
                                        FIELD_PRIVATA,
                                        FIELD_MITTENTE,
                                        user.GetFullName().c_str(),
+                                       FIELD_GRUPPO,
+                                       CRIRegistryOptions::Instance()->GetDefaultGruppo(),
                                        FIELD_INSERITA);
     }
 
@@ -2488,6 +2489,29 @@ bool CRIRegistryMainFrame::ShowCurrentComunication()
     m_menu_Comunication->Check( ID_VIEW_CURRENT_COMUNICATION, true );
     UpdateComunicationList();
     return true;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+int CRIRegistryMainFrame::GetComunicationsToRead()
+{
+    wxString query;
+    query = wxString::Format( _T("SELECT COUNT(%s) FROM %s WHERE %s=0 AND %s='%s'"), 
+                                FIELD_ID,
+                                TABLE_COMUNICAZIONI,
+                                FIELD_LETTA,
+                                FIELD_GRUPPO,
+                                CRIRegistryOptions::Instance()->GetDefaultGruppo()
+                            );
+
+    dbResultSet res;
+    if ( !dbSingleton::Instance()->SQLQuery( query, &res ) )
+    {
+        return 0;
+    }
+
+    return res.Row().Col().GetIntValue();
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3130,6 +3154,17 @@ void CRIRegistryMainFrame::LogInUser()
 {
     __SINCRONIZE_TIMER__
 
-    UsersManager::Instance()->LogIn();
+    bool bIsLogged = UsersManager::Instance()->LogIn();
     AuthenticateUser();
+    CUser user = UsersManager::Instance()->GetUserLogged();
+    if ( bIsLogged && ((user.GetPrivileges() >= CENTRALINO) && (user.GetPrivileges() < ADMINISTRATOR)) )
+    {
+        int num = GetComunicationsToRead();
+        if ( num > 0 )
+        {
+            m_notebook->SetSelection( 3 );
+            wxString txt = ( num == 1 ) ? _("comunicazione") : _("comunicazioni");
+            INFO_MESSAGE(wxString::Format(_("Hai %d %s da leggere"), num, txt.c_str()));
+        }
+    }
 }

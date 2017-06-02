@@ -5605,7 +5605,9 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	m_staticText311->Wrap( -1 );
 	bSizer371->Add( m_staticText311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_ComunicazioneTo = new wxComboBox( this, ID_COMUNICAZIONE_TO, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 ); 
+	wxArrayString m_ComunicazioneToChoices;
+	m_ComunicazioneTo = new wxChoice( this, ID_COMUNICAZIONE_TO, wxDefaultPosition, wxDefaultSize, m_ComunicazioneToChoices, 0 );
+	m_ComunicazioneTo->SetSelection( 0 );
 	bSizer371->Add( m_ComunicazioneTo, 1, wxALL, 5 );
 	
 	
@@ -5676,7 +5678,6 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	
 	// Connect Events
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( ComunicationDlg::OnClose ) );
-	m_ComunicazioneTo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_Oggetto->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_Note->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_bpButton_Ok->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ComunicationDlg::OnOk ), NULL, this );
@@ -5687,7 +5688,6 @@ ComunicationDlg::~ComunicationDlg()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( ComunicationDlg::OnClose ) );
-	m_ComunicazioneTo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_Oggetto->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_Note->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ComunicationDlg::OnExitCtrl ), NULL, this );
 	m_bpButton_Ok->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ComunicationDlg::OnOk ), NULL, this );

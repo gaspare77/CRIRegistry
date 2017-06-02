@@ -18,7 +18,7 @@ ComunicationDlg( parent ), m_Comunication( c ), m_Mode( mode )
     m_Gruppo->Append( aszGruppi );
 
     m_ComunicazioneTo->Clear();
-    m_ComunicazioneTo->AppendString( _T("") );
+    m_ComunicazioneTo->AppendString( _T("CENTRALINO") );
     query = wxString::Format( _T("SELECT * FROM %s ORDER BY %s"), TABLE_MAILING_LIST, FIELD_NOME );
 	if ( dbSingleton::Instance()->SQLQuery( query, &res ) )
 	{
@@ -56,10 +56,6 @@ void CRIRegistryComunicationDlg::OnExitCtrl( wxFocusEvent& event )
 {
     switch ( event.GetId() )
     {
-	case ID_COMUNICAZIONE_TO:
-		m_ComunicazioneTo->SetValue( m_ComunicazioneTo->GetValue().Upper() );
-        break;
-
 	case ID_OGGETTO:
 		m_Oggetto->SetValue( m_Oggetto->GetValue().Upper() );
         break;
@@ -105,7 +101,7 @@ void CRIRegistryComunicationDlg::UpdateCtrl()
 {
     m_Gruppo->SetStringSelection( m_Comunication[FIELD_GRUPPO].GetStringValue() );
     m_ComunicazioneDa->SetValue( m_Comunication[FIELD_MITTENTE].GetStringValue() );
-    m_ComunicazioneTo->SetValue( m_Comunication[FIELD_DESTINATARIO].GetStringValue() );
+    m_ComunicazioneTo->SetStringSelection( m_Comunication[FIELD_DESTINATARIO].GetStringValue() );
     m_Oggetto->SetValue( m_Comunication[FIELD_OGGETTO].GetStringValue() );
     m_Note->SetValue( m_Comunication[FIELD_TESTO].GetStringValue() );
     m_Letta->SetValue( m_Comunication[FIELD_LETTA].GetBoolValue() );
@@ -128,7 +124,7 @@ bool CRIRegistryComunicationDlg::UpdateData()
         return false;
     }
 
-    if ( m_ComunicazioneTo->GetValue().IsEmpty() )
+    if ( m_ComunicazioneTo->GetStringSelection().IsEmpty() )
     {
         WARNING_MESSAGE( _("Non e' stato inserito il destinatario") );
         m_ComunicazioneTo->SetFocus();
@@ -151,7 +147,7 @@ bool CRIRegistryComunicationDlg::UpdateData()
 
     m_Comunication[FIELD_GRUPPO] = m_Gruppo->GetStringSelection();
     m_Comunication[FIELD_OGGETTO] = m_Oggetto->GetValue();
-    m_Comunication[FIELD_DESTINATARIO] = m_ComunicazioneTo->GetValue();
+    m_Comunication[FIELD_DESTINATARIO] = m_ComunicazioneTo->GetStringSelection();
     m_Comunication[FIELD_TESTO] = m_Note->GetValue();
     m_Comunication[FIELD_LETTA] = m_Letta->GetValue();
     m_Comunication[FIELD_PRIVATA] = NeedToSendEmail();
@@ -165,7 +161,7 @@ bool CRIRegistryComunicationDlg::NeedToSendEmail()
 {
     for ( std::vector<dbClass>::iterator it = m_MailingList.begin(); it != m_MailingList.end(); ++it )
     {
-        if ( m_ComunicazioneTo->GetValue() == it->GetField(FIELD_NOME).GetStringValue() )
+        if ( m_ComunicazioneTo->GetStringSelection() == it->GetField(FIELD_NOME).GetStringValue() )
         {
             return true;
         }
@@ -183,7 +179,7 @@ wxArrayString CRIRegistryComunicationDlg::GetMailAddress()
 
     for ( std::vector<dbClass>::iterator it = m_MailingList.begin(); it != m_MailingList.end(); ++it )
     {
-        if ( m_ComunicazioneTo->GetValue() == it->GetField(FIELD_NOME).GetStringValue() )
+        if ( m_ComunicazioneTo->GetStringSelection() == it->GetField(FIELD_NOME).GetStringValue() )
         {
             addr = it->GetField(FIELD_EMAIL).GetStringValue();
         }

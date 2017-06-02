@@ -1597,7 +1597,7 @@ class ComunicationDlg : public wxDialog
 		wxStaticText* m_staticText31;
 		wxTextCtrl* m_ComunicazioneDa;
 		wxStaticText* m_staticText311;
-		wxComboBox* m_ComunicazioneTo;
+		wxChoice* m_ComunicazioneTo;
 		wxStaticText* m_staticText313;
 		wxTextCtrl* m_Oggetto;
 		wxStaticText* m_staticText581;

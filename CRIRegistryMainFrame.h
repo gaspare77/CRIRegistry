@@ -125,6 +125,7 @@ private:
 	long GetShiftItemSelected();
 	long GetServiceItemSelected();
 	long GetComunicationItemSelected();
+    int GetComunicationsToRead();
 	std::vector<CPresence>::iterator GetPresenceSelected();
 	std::vector<CService>::iterator GetServiceSelected();
 	std::vector<CShift>::iterator GetShiftSelected();
