@@ -261,7 +261,7 @@ enum eUserPrivilege
 static const char* szUserPrivilege[] =
 {
     _(""),
-    _("V.d.S"),
+    _("VOLONTARIO"),
     _("CENTRALINO"),
     _("RESPONSABILE MEZZI"),
     _("RESPONSABILE TURNI"),
