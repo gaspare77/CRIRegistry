@@ -107,6 +107,23 @@ void CRIRegistryMainFrame::OnTimer( wxTimerEvent& event )
 
     m_bOnTimer = true;
 
+    // Auto set presence out after 12 h
+    if ( m_menu_Presence->IsChecked( ID_VIEW_CURRENT_PRESENCE ) )
+    {
+        for ( std::vector<CPresence>::iterator it = m_vPresences.begin(); it != m_vPresences.end(); ++it )
+        {
+            if (it->GetField(FIELD_DATAORAFINE).IsEmpty())
+            {
+                wxDateTime dt = it->GetField(FIELD_DATAORAINIZIO).GetDateTimeValue();
+                if (( dt + wxTimeSpan::Hours(12) ) >= wxDateTime::Now() )
+                {
+                    it->GetField(FIELD_DATAORAFINE).SetValue( wxDateTime::Now() );
+                    it->UpdateIntoDb();
+                }
+            }
+        }
+    }
+
     // Reselect the data from the database
     if ( ++m_iRefresLists >= m_iRefreshListsTime )
     {
@@ -131,17 +148,6 @@ void CRIRegistryMainFrame::OnTimer( wxTimerEvent& event )
         }
 
         m_iRefresLists = 0;
-    }
-
-    // Auto set presence out after 12 h
-    for ( std::vector<CPresence>::iterator it = m_vPresences.begin(); it != m_vPresences.end(); ++it )
-    {
-        wxDateTime dt = it->GetField(FIELD_DATAORAINIZIO).GetDateTimeValue();
-        if ( wxDateTime::Now() >= dt + wxTimeSpan::Hours(12) )
-        {
-            it->GetField(FIELD_DATAORAFINE).SetValue( wxDateTime::Now() );
-            it->UpdateIntoDb();
-        }
     }
 
     // Auto LogOut User after a [AutoLogOutTime] min. of inactivity
