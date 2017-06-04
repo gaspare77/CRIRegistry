@@ -33,7 +33,7 @@ UsersManagerDlg::~UsersManagerDlg()
 // 
 void UsersManagerDlg::UpdateUsersList()
 {
-	wxString query = wxString::Format( _T("SELECT %s FROM %s WHERE %s <> \'%s\'"), FIELD_USER, TABLE_USERS, FIELD_USER, szUserPrivilege[ADMINISTRATOR] );
+	wxString query = wxString::Format( _T("SELECT %s FROM %s WHERE %s <> \'%s\' ORDER BY %s,%s"), FIELD_USER, TABLE_USERS, FIELD_USER, szUserPrivilege[ADMINISTRATOR], FIELD_COGNOME, FIELD_NOME );
 	m_listBox_Utenti->Clear();
 	m_listBox_Utenti->Append( dbSingleton::Instance()->SQLGetColArray( query ) );
 	ClearData();
