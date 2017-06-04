@@ -221,7 +221,7 @@ class MainFrame : public wxFrame
 	
 	public:
 		
-		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registro Servizi"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,600 ), long style = wxCAPTION|wxCLOSE_BOX|wxDEFAULT_FRAME_STYLE|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU|wxTAB_TRAVERSAL );
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registro Servizi"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxCLOSE_BOX|wxDEFAULT_FRAME_STYLE|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU|wxTAB_TRAVERSAL );
 		
 		~MainFrame();
 	
@@ -256,7 +256,7 @@ class SQLQueryDlg : public wxDialog
 	
 	public:
 		
-		SQLQueryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("SQL Query"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 800,600 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER ); 
+		SQLQueryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("SQL Query"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER ); 
 		~SQLQueryDlg();
 	
 };
@@ -322,7 +322,7 @@ class FleetDlg : public wxDialog
 	
 	public:
 		
-		FleetDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Parco Macchine"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 530,430 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		FleetDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Parco Macchine"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 656,486 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~FleetDlg();
 	
 };
@@ -391,7 +391,7 @@ class HospitalDlg : public wxDialog
 	
 	public:
 		
-		HospitalDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Lista Ospedali"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 650,430 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		HospitalDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Lista Ospedali"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 656,486 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~HospitalDlg();
 	
 };
@@ -446,7 +446,7 @@ class UsersDlg : public wxDialog
 	
 	public:
 		
-		UsersDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Gestione Utenti"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 504,349 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		UsersDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Gestione Utenti"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 656,486 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~UsersDlg();
 	
 };
@@ -474,7 +474,7 @@ class LogInDlg : public wxDialog
 	
 	public:
 		
-		LogInDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Inserire Utente e Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 300,150 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		LogInDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Inserire Utente e Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 306,158 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~LogInDlg();
 	
 };
@@ -504,7 +504,7 @@ class ChangeUsersPwdDlg : public wxDialog
 	
 	public:
 		
-		ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Cambia Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 300,180 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Cambia Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 306,196 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ChangeUsersPwdDlg();
 	
 };
@@ -532,7 +532,7 @@ class SetUsersPwdDlg : public wxDialog
 	
 	public:
 		
-		SetUsersPwdDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Imposta Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 300,150 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SetUsersPwdDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Imposta Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 306,158 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SetUsersPwdDlg();
 	
 };
@@ -561,7 +561,7 @@ class AddFieldsDlg : public wxDialog
 	
 	public:
 		
-		AddFieldsDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 256,324 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		AddFieldsDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 306,406 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~AddFieldsDlg();
 	
 };
@@ -590,7 +590,7 @@ class MailingListDlg : public wxDialog
 	
 	public:
 		
-		MailingListDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Indirizzi eMail per le Comunicazioni"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,400 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		MailingListDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Indirizzi eMail per le Comunicazioni"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 606,406 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~MailingListDlg();
 	
 };
@@ -626,7 +626,7 @@ class MailAddressDlg : public wxDialog
 	
 	public:
 		
-		MailAddressDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Indirizzo eMail"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,206 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		MailAddressDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Indirizzo eMail"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 506,229 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~MailAddressDlg();
 	
 };
@@ -678,7 +678,7 @@ class PresenceDlg : public wxDialog
 	
 	public:
 		
-		PresenceDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registrazione Presenze"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 380,362 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		PresenceDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registrazione Presenze"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,426 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~PresenceDlg();
 	
 };
@@ -739,7 +739,7 @@ class ShiftDlg : public wxDialog
 	
 	public:
 		
-		ShiftDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registrazione Turni"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 380,381 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ShiftDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Registrazione Turni"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,426 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ShiftDlg();
 	
 };
@@ -972,7 +972,7 @@ class ServiceRegistryDlg : public wxDialog
 	
 	public:
 		
-		ServiceRegistryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Servizi Registrati"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 900,700 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ServiceRegistryDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Servizi Registrati"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1006,748 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ServiceRegistryDlg();
 	
 };
@@ -1027,7 +1027,7 @@ class AddCrewDlg : public wxDialog
 	
 	public:
 		
-		AddCrewDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Inserisci Equipaggio"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 640,375 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		AddCrewDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Inserisci Equipaggio"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 646,486 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~AddCrewDlg();
 	
 };
@@ -1068,7 +1068,7 @@ class CrewDlg : public wxDialog
 	
 	public:
 		
-		CrewDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("V.d.S."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 380,179 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		CrewDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("V.d.S."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 486,196 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~CrewDlg();
 	
 };
@@ -1213,7 +1213,7 @@ class PatientDlg : public wxDialog
 	
 	public:
 		
-		PatientDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 760,580 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		PatientDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 906,706 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~PatientDlg();
 	
 };
@@ -1363,7 +1363,7 @@ class AddPatient118Dlg : public wxDialog
 	
 	public:
 		
-		AddPatient118Dlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 670,540 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		AddPatient118Dlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 906,706 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~AddPatient118Dlg();
 	
 };
@@ -1456,7 +1456,7 @@ class AddPatientDlg : public wxDialog
 	
 	public:
 		
-		AddPatientDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 670,540 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		AddPatientDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Paziente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 906,706 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~AddPatientDlg();
 	
 };
@@ -1485,7 +1485,7 @@ class SelectDateRangeDlg : public wxDialog
 	
 	public:
 		
-		SelectDateRangeDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Selezionare l'intervallo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 340,140 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SelectDateRangeDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Selezionare l'intervallo"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,186 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SelectDateRangeDlg();
 	
 };
@@ -1521,7 +1521,7 @@ class SearchDlg : public wxDialog
 	
 	public:
 		
-		SearchDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Ricerca Servizi"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 340,177 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SearchDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Ricerca Servizi"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,196 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SearchDlg();
 	
 };
@@ -1554,7 +1554,7 @@ class OptionsDlg : public wxDialog
 	
 	public:
 		
-		OptionsDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Opzioni Programma"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 363,228 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		OptionsDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Opzioni Programma"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 496,256 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~OptionsDlg();
 	
 };
@@ -1572,7 +1572,7 @@ class ProgressDlg : public wxDialog
 	
 	public:
 		
-		ProgressDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 400,75 ), long style = wxSTAY_ON_TOP ); 
+		ProgressDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,89 ), long style = wxSTAY_ON_TOP ); 
 		~ProgressDlg();
 	
 };
@@ -1616,7 +1616,7 @@ class ComunicationDlg : public wxDialog
 	
 	public:
 		
-		ComunicationDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Comunicazioni di Servizio"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 419,448 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ComunicationDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Comunicazioni di Servizio"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 426,506 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ComunicationDlg();
 	
 };
@@ -1660,7 +1660,7 @@ class SelectUserDisponibilityDlg : public wxDialog
 	
 	public:
 		
-		SelectUserDisponibilityDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Ricerca Volontari"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 352,288 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SelectUserDisponibilityDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Ricerca Volontari"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 406,310 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SelectUserDisponibilityDlg();
 	
 };
@@ -1682,7 +1682,7 @@ class HtmlFrame : public wxFrame
 	
 	public:
 		
-		HtmlFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_FLOAT_ON_PARENT|wxSTAY_ON_TOP|wxTAB_TRAVERSAL );
+		HtmlFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_FLOAT_ON_PARENT|wxSTAY_ON_TOP|wxTAB_TRAVERSAL );
 		
 		~HtmlFrame();
 	

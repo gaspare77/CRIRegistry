@@ -13,7 +13,7 @@
 
 MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxSize( 800,600 ), wxDefaultSize );
+	this->SetSizeHints( wxSize( 900,700 ), wxDefaultSize );
 	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_3DLIGHT ) );
 	
 	m_menubar = new wxMenuBar( 0 );
@@ -295,7 +295,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_panel_Presence->SetSizer( bSizer662 );
 	m_panel_Presence->Layout();
 	bSizer662->Fit( m_panel_Presence );
-	m_notebook->AddPage( m_panel_Presence, _("Registro Presenze"), false );
+	m_notebook->AddPage( m_panel_Presence, _("Registro Presenze"), true );
 	m_panel_Shift = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer66;
 	bSizer66 = new wxBoxSizer( wxVERTICAL );
@@ -345,7 +345,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_panel_Shift->SetSizer( bSizer66 );
 	m_panel_Shift->Layout();
 	bSizer66->Fit( m_panel_Shift );
-	m_notebook->AddPage( m_panel_Shift, _("Registro Turni"), true );
+	m_notebook->AddPage( m_panel_Shift, _("Registro Turni"), false );
 	m_panel_Service = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer67;
 	bSizer67 = new wxBoxSizer( wxVERTICAL );
@@ -495,6 +495,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	
 	this->SetSizer( bSizer37 );
 	this->Layout();
+	bSizer37->Fit( this );
 	
 	this->Centre( wxBOTH );
 	
@@ -669,7 +670,7 @@ MainFrame::~MainFrame()
 
 SQLQueryDlg::SQLQueryDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 900,700 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer91;
 	bSizer91 = new wxBoxSizer( wxVERTICAL );
@@ -761,6 +762,7 @@ SQLQueryDlg::SQLQueryDlg( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	this->SetSizer( bSizer91 );
 	this->Layout();
+	bSizer91->Fit( this );
 	
 	this->Centre( wxBOTH );
 	
@@ -789,7 +791,7 @@ SQLQueryDlg::~SQLQueryDlg()
 
 FleetDlg::FleetDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 650,480 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer39;
 	bSizer39 = new wxBoxSizer( wxVERTICAL );
@@ -945,11 +947,11 @@ FleetDlg::FleetDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer433111;
 	bSizer433111 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_NonOperativa = new wxCheckBox( this, ID_NON_OPERATIVA, _("Non Operativa"), wxDefaultPosition, wxSize( -1,-1 ), wxALIGN_RIGHT );
+	m_NonOperativa = new wxCheckBox( this, ID_NON_OPERATIVA, _("Non Operativa"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	bSizer433111->Add( m_NonOperativa, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
-	bSizer41->Add( bSizer433111, 0, wxALIGN_RIGHT|wxEXPAND, 5 );
+	bSizer41->Add( bSizer433111, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
 	wxBoxSizer* bSizer134;
 	bSizer134 = new wxBoxSizer( wxHORIZONTAL );
@@ -1037,7 +1039,7 @@ FleetDlg::~FleetDlg()
 
 HospitalDlg::HospitalDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 650,480 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer78;
 	bSizer78 = new wxBoxSizer( wxVERTICAL );
@@ -1048,7 +1050,9 @@ HospitalDlg::HospitalDlg( wxWindow* parent, wxWindowID id, const wxString& title
 	wxBoxSizer* bSizer80;
 	bSizer80 = new wxBoxSizer( wxVERTICAL );
 	
-	m_listBox_Ospedali = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxSize( 250,-1 ), 0, NULL, 0 ); 
+	m_listBox_Ospedali = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), 0, NULL, 0 ); 
+	m_listBox_Ospedali->SetMinSize( wxSize( 250,-1 ) );
+	
 	bSizer80->Add( m_listBox_Ospedali, 1, wxALL, 5 );
 	
 	wxBoxSizer* bSizer42;
@@ -1290,7 +1294,7 @@ HospitalDlg::~HospitalDlg()
 
 UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 650,480 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer75;
 	bSizer75 = new wxBoxSizer( wxVERTICAL );
@@ -1303,6 +1307,8 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	bSizer106->SetMinSize( wxSize( 200,-1 ) ); 
 	m_listBox_Utenti = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), 0, NULL, 0 ); 
+	m_listBox_Utenti->SetMinSize( wxSize( 250,-1 ) );
+	
 	bSizer106->Add( m_listBox_Utenti, 1, wxALL|wxEXPAND, 5 );
 	
 	
@@ -1314,7 +1320,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer108;
 	bSizer108 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText50 = new wxStaticText( this, wxID_ANY, _("Utente"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticText50 = new wxStaticText( this, wxID_ANY, _("Utente"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText50->Wrap( -1 );
 	bSizer108->Add( m_staticText50, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1328,7 +1334,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer1081;
 	bSizer1081 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText501 = new wxStaticText( this, wxID_ANY, _("Cognome"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticText501 = new wxStaticText( this, wxID_ANY, _("Cognome"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText501->Wrap( -1 );
 	bSizer1081->Add( m_staticText501, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1342,7 +1348,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer1082;
 	bSizer1082 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText502 = new wxStaticText( this, wxID_ANY, _("Nome"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticText502 = new wxStaticText( this, wxID_ANY, _("Nome"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText502->Wrap( -1 );
 	bSizer1082->Add( m_staticText502, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1356,7 +1362,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer1083;
 	bSizer1083 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText503 = new wxStaticText( this, wxID_ANY, _("Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText503 = new wxStaticText( this, wxID_ANY, _("Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText503->Wrap( -1 );
 	bSizer1083->Add( m_staticText503, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1370,7 +1376,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer1085;
 	bSizer1085 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText505 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText505 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText505->Wrap( -1 );
 	bSizer1085->Add( m_staticText505, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1384,7 +1390,7 @@ UsersDlg::UsersDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer1084;
 	bSizer1084 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText504 = new wxStaticText( this, wxID_ANY, _("Privilegi"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText504 = new wxStaticText( this, wxID_ANY, _("Privilegi"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText504->Wrap( -1 );
 	bSizer1084->Add( m_staticText504, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1491,7 +1497,7 @@ UsersDlg::~UsersDlg()
 
 LogInDlg::LogInDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 300,150 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer75;
 	bSizer75 = new wxBoxSizer( wxVERTICAL );
@@ -1499,7 +1505,7 @@ LogInDlg::LogInDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer76;
 	bSizer76 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText46 = new wxStaticText( this, wxID_ANY, _("Utente"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticText46 = new wxStaticText( this, wxID_ANY, _("Utente"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText46->Wrap( -1 );
 	bSizer76->Add( m_staticText46, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1513,7 +1519,7 @@ LogInDlg::LogInDlg( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer77;
 	bSizer77 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText47 = new wxStaticText( this, wxID_ANY, _("Password"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticText47 = new wxStaticText( this, wxID_ANY, _("Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText47->Wrap( -1 );
 	bSizer77->Add( m_staticText47, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1568,7 +1574,7 @@ LogInDlg::~LogInDlg()
 
 ChangeUsersPwdDlg::ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 300,190 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer75;
 	bSizer75 = new wxBoxSizer( wxVERTICAL );
@@ -1576,7 +1582,7 @@ ChangeUsersPwdDlg::ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer7711;
 	bSizer7711 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText4711 = new wxStaticText( this, wxID_ANY, _("Vecchia Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText4711 = new wxStaticText( this, wxID_ANY, _("Vecchia Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText4711->Wrap( -1 );
 	bSizer7711->Add( m_staticText4711, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1590,7 +1596,7 @@ ChangeUsersPwdDlg::ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer771;
 	bSizer771 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText471 = new wxStaticText( this, wxID_ANY, _("Nuova Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText471 = new wxStaticText( this, wxID_ANY, _("Nuova Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText471->Wrap( -1 );
 	bSizer771->Add( m_staticText471, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1604,7 +1610,7 @@ ChangeUsersPwdDlg::ChangeUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxS
 	wxBoxSizer* bSizer772;
 	bSizer772 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText472 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText472 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText472->Wrap( -1 );
 	bSizer772->Add( m_staticText472, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1657,7 +1663,7 @@ ChangeUsersPwdDlg::~ChangeUsersPwdDlg()
 
 SetUsersPwdDlg::SetUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 300,150 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer75;
 	bSizer75 = new wxBoxSizer( wxVERTICAL );
@@ -1665,7 +1671,7 @@ SetUsersPwdDlg::SetUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer771;
 	bSizer771 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText471 = new wxStaticText( this, wxID_ANY, _("Nuova Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText471 = new wxStaticText( this, wxID_ANY, _("Nuova Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText471->Wrap( -1 );
 	bSizer771->Add( m_staticText471, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1679,7 +1685,7 @@ SetUsersPwdDlg::SetUsersPwdDlg( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer772;
 	bSizer772 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText472 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	m_staticText472 = new wxStaticText( this, wxID_ANY, _("Conferma Password"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText472->Wrap( -1 );
 	bSizer772->Add( m_staticText472, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1732,7 +1738,7 @@ SetUsersPwdDlg::~SetUsersPwdDlg()
 
 AddFieldsDlg::AddFieldsDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 300,400 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -1804,7 +1810,7 @@ AddFieldsDlg::~AddFieldsDlg()
 
 MailingListDlg::MailingListDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 600,400 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -1876,7 +1882,7 @@ MailingListDlg::~MailingListDlg()
 
 MailAddressDlg::MailAddressDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 500,220 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -1963,7 +1969,7 @@ MailAddressDlg::~MailAddressDlg()
 
 PresenceDlg::PresenceDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,420 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -2124,7 +2130,7 @@ PresenceDlg::~PresenceDlg()
 
 ShiftDlg::ShiftDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,420 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -2335,7 +2341,7 @@ ShiftDlg::~ShiftDlg()
 
 ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
+	this->SetSizeHints( wxSize( 1000,748 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer78;
 	bSizer78 = new wxBoxSizer( wxVERTICAL );
@@ -2482,7 +2488,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer173;
 	bSizer173 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_NumScheda118_Label = new wxStaticText( m_panel1, wxID_ANY, _("Numero di Scheda 118"), wxDefaultPosition, wxSize( 110,-1 ), 0 );
+	m_NumScheda118_Label = new wxStaticText( m_panel1, wxID_ANY, _("Numero di Scheda 118"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	m_NumScheda118_Label->Wrap( -1 );
 	bSizer173->Add( m_NumScheda118_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2496,7 +2502,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer154;
 	bSizer154 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Tipo_Label = new wxStaticText( m_panel1, wxID_ANY, _("Tipologia di servizio"), wxDefaultPosition, wxSize( 110,-1 ), 0 );
+	m_Tipo_Label = new wxStaticText( m_panel1, wxID_ANY, _("Tipologia di servizio"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	m_Tipo_Label->Wrap( -1 );
 	bSizer154->Add( m_Tipo_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
@@ -2605,7 +2611,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_panel1->SetSizer( bSizer187 );
 	m_panel1->Layout();
 	bSizer187->Fit( m_panel1 );
-	m_notebook->AddPage( m_panel1, _("Richiesto"), true );
+	m_notebook->AddPage( m_panel1, _("Richiesto"), false );
 	m_panel2 = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer1652;
 	bSizer1652 = new wxBoxSizer( wxVERTICAL );
@@ -2613,7 +2619,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1621;
 	bSizer1621 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Richiesto_Nominativo_Label = new wxStaticText( m_panel2, wxID_ANY, _("Nominativo"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_Richiesto_Nominativo_Label = new wxStaticText( m_panel2, wxID_ANY, _("Nominativo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_Richiesto_Nominativo_Label->Wrap( -1 );
 	bSizer1621->Add( m_Richiesto_Nominativo_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2627,7 +2633,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1623;
 	bSizer1623 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Richiesto_CF_PIVA_Label = new wxStaticText( m_panel2, wxID_ANY, _("C.F./P.IVA"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_Richiesto_CF_PIVA_Label = new wxStaticText( m_panel2, wxID_ANY, _("C.F./P.IVA"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_Richiesto_CF_PIVA_Label->Wrap( -1 );
 	bSizer1623->Add( m_Richiesto_CF_PIVA_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2641,7 +2647,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1611;
 	bSizer1611 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Richiesto_Indirizzo_Label = new wxStaticText( m_panel2, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_Richiesto_Indirizzo_Label = new wxStaticText( m_panel2, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_Richiesto_Indirizzo_Label->Wrap( -1 );
 	bSizer1611->Add( m_Richiesto_Indirizzo_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2663,7 +2669,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer165;
 	bSizer165 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Richiesto_CAP_Label = new wxStaticText( m_panel2, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_Richiesto_CAP_Label = new wxStaticText( m_panel2, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_Richiesto_CAP_Label->Wrap( -1 );
 	bSizer165->Add( m_Richiesto_CAP_Label, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2866,7 +2872,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1232;
 	bSizer1232 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText1112 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Cod. Fiscale"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText1112 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Cod. Fiscale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText1112->Wrap( -1 );
 	bSizer1232->Add( m_staticText1112, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2888,7 +2894,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer123;
 	bSizer123 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText111 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText111 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText111->Wrap( -1 );
 	bSizer123->Add( m_staticText111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2910,7 +2916,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer124;
 	bSizer124 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText16 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText16 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer124->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2940,7 +2946,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1231;
 	bSizer1231 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText1111 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText1111 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText1111->Wrap( -1 );
 	bSizer1231->Add( m_staticText1111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2968,11 +2974,11 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1162;
 	bSizer1162 = new wxBoxSizer( wxVERTICAL );
 	
-	m_staticText21 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Motivo del"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText21 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Motivo del"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText21->Wrap( -1 );
 	bSizer1162->Add( m_staticText21, 0, wxALL, 5 );
 	
-	m_staticText211 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Trasporto"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText211 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Trasporto"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText211->Wrap( -1 );
 	bSizer1162->Add( m_staticText211, 0, wxALL, 5 );
 	
@@ -2992,7 +2998,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1791;
 	bSizer1791 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText1042 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Trasportato"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText1042 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("Trasportato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText1042->Wrap( -1 );
 	bSizer1791->Add( m_staticText1042, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3006,7 +3012,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	wxBoxSizer* bSizer1801;
 	bSizer1801 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText1021 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_staticText1021 = new wxStaticText( m_scrolledWindow1, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText1021->Wrap( -1 );
 	bSizer1801->Add( m_staticText1021, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3285,7 +3291,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_panel3->SetSizer( bSizer189 );
 	m_panel3->Layout();
 	bSizer189->Fit( m_panel3 );
-	m_notebook->AddPage( m_panel3, _("Pazienti"), false );
+	m_notebook->AddPage( m_panel3, _("Pazienti"), true );
 	m_panel4 = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer191;
 	bSizer191 = new wxBoxSizer( wxHORIZONTAL );
@@ -3493,7 +3499,7 @@ ServiceRegistryDlg::~ServiceRegistryDlg()
 
 AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 640,480 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -3501,7 +3507,7 @@ AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer43;
 	bSizer43 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText37 = new wxStaticText( this, wxID_ANY, _("Gruppo"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_staticText37 = new wxStaticText( this, wxID_ANY, _("Gruppo"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText37->Wrap( -1 );
 	bSizer43->Add( m_staticText37, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3518,14 +3524,14 @@ AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer48;
 	bSizer48 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText221111 = new wxStaticText( this, wxID_ANY, _("Data"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_staticText221111 = new wxStaticText( this, wxID_ANY, _("Data"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText221111->Wrap( -1 );
 	bSizer48->Add( m_staticText221111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_Data = new wxDatePickerCtrl( this, ID_DATA, wxDefaultDateTime, wxDefaultPosition, wxSize( 130,-1 ), wxDP_DROPDOWN|wxDP_SHOWCENTURY );
 	bSizer48->Add( m_Data, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText221112 = new wxStaticText( this, wxID_ANY, _("Ora Inizio Turno"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText221112 = new wxStaticText( this, wxID_ANY, _("Ora Inizio Turno"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText221112->Wrap( -1 );
 	bSizer48->Add( m_staticText221112, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3533,7 +3539,7 @@ AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_OraInizio->SetMaxLength( 5 ); 
 	bSizer48->Add( m_OraInizio, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText58 = new wxStaticText( this, wxID_ANY, _("Ora Fine Turno"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText58 = new wxStaticText( this, wxID_ANY, _("Ora Fine Turno"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText58->Wrap( -1 );
 	bSizer48->Add( m_staticText58, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3547,7 +3553,7 @@ AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer69;
 	bSizer69 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText5111 = new wxStaticText( this, wxID_ANY, _("Mezzo"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_staticText5111 = new wxStaticText( this, wxID_ANY, _("Mezzo"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText5111->Wrap( -1 );
 	bSizer69->Add( m_staticText5111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3558,7 +3564,7 @@ AddCrewDlg::AddCrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	
 	bSizer69->Add( m_Mezzo, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText51111 = new wxStaticText( this, wxID_ANY, _("Tipo di Servizio"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText51111 = new wxStaticText( this, wxID_ANY, _("Tipo di Servizio"), wxDefaultPosition, wxSize( 70,-1 ), 0 );
 	m_staticText51111->Wrap( -1 );
 	bSizer69->Add( m_staticText51111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3652,7 +3658,7 @@ AddCrewDlg::~AddCrewDlg()
 
 CrewDlg::CrewDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 480,190 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -3757,7 +3763,7 @@ CrewDlg::~CrewDlg()
 
 PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 900,700 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer120;
 	bSizer120 = new wxBoxSizer( wxVERTICAL );
@@ -3765,7 +3771,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText4->Wrap( -1 );
 	bSizer121->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3787,7 +3793,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer208;
 	bSizer208 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText138->Wrap( -1 );
 	bSizer208->Add( m_staticText138, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3809,7 +3815,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer122;
 	bSizer122 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText14 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText14 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText14->Wrap( -1 );
 	bSizer122->Add( m_staticText14, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3853,7 +3859,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer123;
 	bSizer123 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText110->Wrap( -1 );
 	bSizer123->Add( m_staticText110, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3875,7 +3881,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer124;
 	bSizer124 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer124->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3905,7 +3911,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer207;
 	bSizer207 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText136->Wrap( -1 );
 	bSizer207->Add( m_staticText136, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3928,9 +3934,9 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer126;
 	bSizer126 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto"), wxDefaultPosition, wxSize( 75,30 ), 0 );
+	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText21->Wrap( -1 );
-	bSizer126->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer126->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 	
 	m_MotivoDelTrasporto = new wxTextCtrl( this, ID_MOTIVOTRASPORTO, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 	m_MotivoDelTrasporto->SetMaxLength( 0 ); 
@@ -3942,7 +3948,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer1791;
 	bSizer1791 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText143 = new wxStaticText( this, wxID_ANY, _("Trasportato"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText143 = new wxStaticText( this, wxID_ANY, _("Trasportato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText143->Wrap( -1 );
 	bSizer1791->Add( m_staticText143, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -3956,7 +3962,7 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer1801;
 	bSizer1801 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText23 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText23 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText23->Wrap( -1 );
 	bSizer1801->Add( m_staticText23, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4326,7 +4332,7 @@ PatientDlg::~PatientDlg()
 
 AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 900,700 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer120;
 	bSizer120 = new wxBoxSizer( wxVERTICAL );
@@ -4334,7 +4340,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome *"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome *"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText4->Wrap( -1 );
 	bSizer121->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4356,7 +4362,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer208;
 	bSizer208 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText138->Wrap( -1 );
 	bSizer208->Add( m_staticText138, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4378,7 +4384,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer1221;
 	bSizer1221 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText141 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText141 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText141->Wrap( -1 );
 	bSizer1221->Add( m_staticText141, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4422,7 +4428,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer123;
 	bSizer123 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText110->Wrap( -1 );
 	bSizer123->Add( m_staticText110, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4444,7 +4450,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer124;
 	bSizer124 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer124->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4474,7 +4480,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer207;
 	bSizer207 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText136->Wrap( -1 );
 	bSizer207->Add( m_staticText136, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4498,9 +4504,9 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	bSizer160 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer160->SetMinSize( wxSize( -1,55 ) ); 
-	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto *"), wxDefaultPosition, wxSize( 75,30 ), 0 );
+	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto *"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText21->Wrap( -1 );
-	bSizer160->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer160->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 	
 	m_MotivoDelTrasporto = new wxTextCtrl( this, ID_MOTIVOTRASPORTO, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 	m_MotivoDelTrasporto->SetMaxLength( 0 ); 
@@ -4757,7 +4763,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	bSizer194 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer194->SetMinSize( wxSize( -1,30 ) ); 
-	m_Trasportato = new wxCheckBox( m_panel2, ID_RICOVERATO, _("Ricoverato all'ospedale"), wxDefaultPosition, wxSize( 160,-1 ), 0 );
+	m_Trasportato = new wxCheckBox( m_panel2, ID_RICOVERATO, _("Ricoverato all'ospedale"), wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	bSizer194->Add( m_Trasportato, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString m_OspedaleChoices;
@@ -4772,7 +4778,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	bSizer17911 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer17911->SetMinSize( wxSize( -1,30 ) ); 
-	m_RifiutaTrasporto = new wxCheckBox( m_panel2, ID_RIFIUTA_TRASPORTO, _("Rifiuta il trasporto"), wxDefaultPosition, wxSize( 160,-1 ), 0 );
+	m_RifiutaTrasporto = new wxCheckBox( m_panel2, ID_RIFIUTA_TRASPORTO, _("Rifiuta il trasporto"), wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	bSizer17911->Add( m_RifiutaTrasporto, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString m_RifiutaTrasportoMotivoChoices;
@@ -4803,7 +4809,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	bSizer179111 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer179111->SetMinSize( wxSize( -1,30 ) ); 
-	m_TrasportatoDaAltraAbulanza = new wxCheckBox( m_panel2, ID_TRASPORTATO_ALTRO_MEZZO, _("Trasportato da altro mezzo"), wxDefaultPosition, wxSize( 160,-1 ), 0 );
+	m_TrasportatoDaAltraAbulanza = new wxCheckBox( m_panel2, ID_TRASPORTATO_ALTRO_MEZZO, _("Trasportato da altro mezzo"), wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	bSizer179111->Add( m_TrasportatoDaAltraAbulanza, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_AltraAmbulanza = new wxTextCtrl( m_panel2, ID_ALTRA_AMBULANZA, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -4916,7 +4922,7 @@ AddPatient118Dlg::~AddPatient118Dlg()
 
 AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 900,700 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer120;
 	bSizer120 = new wxBoxSizer( wxVERTICAL );
@@ -4924,7 +4930,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome *"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Cognome *"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText4->Wrap( -1 );
 	bSizer121->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4946,7 +4952,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer208;
 	bSizer208 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText138 = new wxStaticText( this, wxID_ANY, _("Codice Fiscale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText138->Wrap( -1 );
 	bSizer208->Add( m_staticText138, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -4960,7 +4966,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer122;
 	bSizer122 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText14 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText14 = new wxStaticText( this, wxID_ANY, _("Data di Nascita"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText14->Wrap( -1 );
 	bSizer122->Add( m_staticText14, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5004,7 +5010,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer123;
 	bSizer123 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText110 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText110->Wrap( -1 );
 	bSizer123->Add( m_staticText110, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5026,7 +5032,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer124;
 	bSizer124 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer124->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5056,7 +5062,7 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer207;
 	bSizer207 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 75,-1 ), 0 );
+	m_staticText136 = new wxStaticText( this, wxID_ANY, _("Stato"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText136->Wrap( -1 );
 	bSizer207->Add( m_staticText136, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5079,9 +5085,9 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer160;
 	bSizer160 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto *"), wxDefaultPosition, wxSize( 75,30 ), 0 );
+	m_staticText21 = new wxStaticText( this, wxID_ANY, _("Motivo del Trasporto *"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText21->Wrap( -1 );
-	bSizer160->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer160->Add( m_staticText21, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxEXPAND, 5 );
 	
 	m_MotivoDelTrasporto = new wxTextCtrl( this, ID_MOTIVOTRASPORTO, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 	m_MotivoDelTrasporto->SetMaxLength( 0 ); 
@@ -5242,7 +5248,7 @@ AddPatientDlg::~AddPatientDlg()
 
 SelectDateRangeDlg::SelectDateRangeDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,180 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -5319,7 +5325,7 @@ SelectDateRangeDlg::~SelectDateRangeDlg()
 
 SearchDlg::SearchDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,180 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -5415,7 +5421,7 @@ SearchDlg::~SearchDlg()
 
 OptionsDlg::OptionsDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 490,250 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -5527,7 +5533,7 @@ OptionsDlg::~OptionsDlg()
 
 ProgressDlg::ProgressDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,75 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer260;
 	bSizer260 = new wxBoxSizer( wxVERTICAL );
@@ -5565,7 +5571,7 @@ ProgressDlg::~ProgressDlg()
 
 ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 420,500 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer36;
 	bSizer36 = new wxBoxSizer( wxVERTICAL );
@@ -5573,7 +5579,7 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer372;
 	bSizer372 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText312 = new wxStaticText( this, wxID_ANY, _("Gruppo"), wxDefaultPosition, wxSize( 45,-1 ), 0 );
+	m_staticText312 = new wxStaticText( this, wxID_ANY, _("Gruppo"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	m_staticText312->Wrap( -1 );
 	bSizer372->Add( m_staticText312, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5588,7 +5594,7 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer37;
 	bSizer37 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText31 = new wxStaticText( this, wxID_ANY, _("Da"), wxDefaultPosition, wxSize( 45,-1 ), 0 );
+	m_staticText31 = new wxStaticText( this, wxID_ANY, _("Da"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	m_staticText31->Wrap( -1 );
 	bSizer37->Add( m_staticText31, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5601,7 +5607,7 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer371;
 	bSizer371 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText311 = new wxStaticText( this, wxID_ANY, _("A"), wxDefaultPosition, wxSize( 45,-1 ), 0 );
+	m_staticText311 = new wxStaticText( this, wxID_ANY, _("A"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	m_staticText311->Wrap( -1 );
 	bSizer371->Add( m_staticText311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5616,7 +5622,7 @@ ComunicationDlg::ComunicationDlg( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSizer373;
 	bSizer373 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText313 = new wxStaticText( this, wxID_ANY, _("Oggetto"), wxDefaultPosition, wxSize( 45,-1 ), 0 );
+	m_staticText313 = new wxStaticText( this, wxID_ANY, _("Oggetto"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	m_staticText313->Wrap( -1 );
 	bSizer373->Add( m_staticText313, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -5697,7 +5703,7 @@ ComunicationDlg::~ComunicationDlg()
 
 SelectUserDisponibilityDlg::SelectUserDisponibilityDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 400,300 ), wxDefaultSize );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );
@@ -5837,7 +5843,7 @@ SelectUserDisponibilityDlg::~SelectUserDisponibilityDlg()
 
 HtmlFrame::HtmlFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxSize( 800,600 ), wxDefaultSize );
 	
 	m_statusBar = this->CreateStatusBar( 1, wxST_SIZEGRIP, wxID_ANY );
 	wxBoxSizer* bSizer308;
@@ -5849,6 +5855,7 @@ HtmlFrame::HtmlFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	
 	this->SetSizer( bSizer308 );
 	this->Layout();
+	bSizer308->Fit( this );
 	
 	this->Centre( wxBOTH );
 	

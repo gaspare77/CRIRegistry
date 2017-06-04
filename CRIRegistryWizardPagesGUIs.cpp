@@ -658,7 +658,7 @@ Richiedente::Richiedente( wxWindow* parent, wxWindowID id, const wxPoint& pos, c
 	wxBoxSizer* bSizer18;
 	bSizer18 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Nominativo *"), wxDefaultPosition, wxSize( 65,-1 ), 0 );
+	m_staticText4 = new wxStaticText( this, wxID_ANY, _("Nominativo *"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText4->Wrap( -1 );
 	bSizer18->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -672,7 +672,7 @@ Richiedente::Richiedente( wxWindow* parent, wxWindowID id, const wxPoint& pos, c
 	wxBoxSizer* bSizer181;
 	bSizer181 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText45 = new wxStaticText( this, wxID_ANY, _("C.F./P.IVA"), wxDefaultPosition, wxSize( 65,-1 ), 0 );
+	m_staticText45 = new wxStaticText( this, wxID_ANY, _("C.F./P.IVA"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText45->Wrap( -1 );
 	bSizer181->Add( m_staticText45, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -686,7 +686,7 @@ Richiedente::Richiedente( wxWindow* parent, wxWindowID id, const wxPoint& pos, c
 	wxBoxSizer* bSizer17;
 	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText42 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 65,-1 ), 0 );
+	m_staticText42 = new wxStaticText( this, wxID_ANY, _("Indirizzo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText42->Wrap( -1 );
 	bSizer17->Add( m_staticText42, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -708,7 +708,7 @@ Richiedente::Richiedente( wxWindow* parent, wxWindowID id, const wxPoint& pos, c
 	wxBoxSizer* bSizer171;
 	bSizer171 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 65,-1 ), 0 );
+	m_staticText16 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	m_staticText16->Wrap( -1 );
 	bSizer171->Add( m_staticText16, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -817,7 +817,7 @@ LuogoIntervento::LuogoIntervento( wxWindow* parent, wxWindowID id, const wxPoint
 	wxBoxSizer* bSizer83;
 	bSizer83 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Ospedale_Checked = new wxCheckBox( this, ID_OSPEDALE_CHECKED, _("Ospedale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_Ospedale_Checked = new wxCheckBox( this, ID_OSPEDALE_CHECKED, _("Ospedale"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	bSizer83->Add( m_Ospedale_Checked, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString m_OspedaleChoices;
@@ -831,7 +831,7 @@ LuogoIntervento::LuogoIntervento( wxWindow* parent, wxWindowID id, const wxPoint
 	wxBoxSizer* bSizer84;
 	bSizer84 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_AltroLuogo_Checked = new wxCheckBox( this, ID_ALTRO_LUOGO_CHECKED, _("Altro Luogo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_AltroLuogo_Checked = new wxCheckBox( this, ID_ALTRO_LUOGO_CHECKED, _("Altro Luogo"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	bSizer84->Add( m_AltroLuogo_Checked, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_Luogo = new wxTextCtrl( this, ID_LUOGO, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -845,7 +845,7 @@ LuogoIntervento::LuogoIntervento( wxWindow* parent, wxWindowID id, const wxPoint
 	bSizer85 = new wxBoxSizer( wxHORIZONTAL );
 	
 	
-	bSizer85->Add( 90, 0, 0, wxEXPAND, 5 );
+	bSizer85->Add( 110, 0, 0, wxEXPAND, 5 );
 	
 	m_CAP_Label = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	m_CAP_Label->Wrap( -1 );
@@ -1144,7 +1144,7 @@ InfoServizio118::InfoServizio118( wxWindow* parent, wxWindowID id, const wxPoint
 	bSizer4611 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer4611->SetMinSize( wxSize( -1,30 ) ); 
-	m_PazienteGiaTrasportato = new wxCheckBox( this, ID_PAZIENTE_GIATRASPORTATO, _("Il Paziente e' stato gia' trasportato"), wxDefaultPosition, wxSize( 200,-1 ), 0 );
+	m_PazienteGiaTrasportato = new wxCheckBox( this, ID_PAZIENTE_GIATRASPORTATO, _("Il Paziente e' stato gia' trasportato"), wxDefaultPosition, wxSize( 250,-1 ), 0 );
 	bSizer4611->Add( m_PazienteGiaTrasportato, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_GiaTrasportatoMezzo = new wxTextCtrl( this, ID_GIA_TRASPORTATO_MEZZO, wxEmptyString, wxDefaultPosition, wxSize( 360,-1 ), 0 );
@@ -1158,7 +1158,7 @@ InfoServizio118::InfoServizio118( wxWindow* parent, wxWindowID id, const wxPoint
 	bSizer462 = new wxBoxSizer( wxHORIZONTAL );
 	
 	bSizer462->SetMinSize( wxSize( -1,30 ) ); 
-	m_ServizioNonCompletato = new wxCheckBox( this, ID_SERVIZIO_NON_COMPLETATO, _("Il Servizio non e' stato completato"), wxDefaultPosition, wxSize( 200,-1 ), 0 );
+	m_ServizioNonCompletato = new wxCheckBox( this, ID_SERVIZIO_NON_COMPLETATO, _("Il Servizio non e' stato completato"), wxDefaultPosition, wxSize( 250,-1 ), 0 );
 	bSizer462->Add( m_ServizioNonCompletato, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_NonCompletato = new wxTextCtrl( this, ID_NON_COMPLETATO, wxEmptyString, wxDefaultPosition, wxSize( 360,-1 ), 0 );
@@ -1316,7 +1316,7 @@ LuogoTrasportato::LuogoTrasportato( wxWindow* parent, wxWindowID id, const wxPoi
 	wxBoxSizer* bSizer83;
 	bSizer83 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_Ospedale_Checked = new wxCheckBox( this, ID_OSPEDALE_CHECKED, _("Ospedale"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_Ospedale_Checked = new wxCheckBox( this, ID_OSPEDALE_CHECKED, _("Ospedale"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	bSizer83->Add( m_Ospedale_Checked, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString m_OspedaleChoices;
@@ -1330,7 +1330,7 @@ LuogoTrasportato::LuogoTrasportato( wxWindow* parent, wxWindowID id, const wxPoi
 	wxBoxSizer* bSizer84;
 	bSizer84 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_AltroLuogo_Checked = new wxCheckBox( this, ID_ALTRO_LUOGO_CHECKED, _("Altro Luogo"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_AltroLuogo_Checked = new wxCheckBox( this, ID_ALTRO_LUOGO_CHECKED, _("Altro Luogo"), wxDefaultPosition, wxSize( 100,-1 ), 0 );
 	bSizer84->Add( m_AltroLuogo_Checked, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_Luogo = new wxTextCtrl( this, ID_LUOGO, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
@@ -1344,7 +1344,7 @@ LuogoTrasportato::LuogoTrasportato( wxWindow* parent, wxWindowID id, const wxPoi
 	bSizer85 = new wxBoxSizer( wxHORIZONTAL );
 	
 	
-	bSizer85->Add( 90, 0, 0, wxEXPAND, 5 );
+	bSizer85->Add( 110, 0, 0, wxEXPAND, 5 );
 	
 	m_CAP_Label = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	m_CAP_Label->Wrap( -1 );
