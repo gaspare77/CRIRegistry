@@ -201,6 +201,10 @@
 
 :Insert020
 
+@echo Creazione triggers in corso ...
+@mysql.exe -h localhost -u%user% -p%pwd% < CRIRegistry_Create_Triggers.sql
+@if ERRORLEVEL 1 pause & exit 1
+@echo Ok
 
 :Exit
 @echo.
