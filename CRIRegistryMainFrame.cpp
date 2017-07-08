@@ -115,7 +115,7 @@ void CRIRegistryMainFrame::OnTimer( wxTimerEvent& event )
             if (it->GetField(FIELD_DATAORAFINE).IsEmpty())
             {
                 wxDateTime dt = it->GetField(FIELD_DATAORAINIZIO).GetDateTimeValue();
-                if (( dt + wxTimeSpan::Hours(12) ) >= wxDateTime::Now() )
+                if ( wxDateTime::Now() >= ( dt + wxTimeSpan::Hours(12) ))
                 {
                     it->GetField(FIELD_DATAORAFINE).SetValue( wxDateTime::Now() );
                     it->UpdateIntoDb();
