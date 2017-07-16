@@ -4,7 +4,7 @@
 // 
 //
 CRIRegistryCodeSelectionDlg::CRIRegistryCodeSelectionDlg( wxWindow* parent, e118CodeType type, const wxString& code ):
-wxDialog( parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 450,380 ), wxDEFAULT_DIALOG_STYLE/* | wxRESIZE_BORDER */)
+wxDialog( parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 500,380 ), wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER )
 {
     wxString query, szItem;
 	dbResultSet res;
@@ -48,7 +48,7 @@ wxDialog( parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 450,380 ),
         break;
     }
 
-	this->SetSizeHints( wxSize( 450,380 ), wxSize( 450,380 ) );
+	this->SetSizeHints( wxSize( 500,380 ), wxSize( 800,600 ) );
 	
 	wxBoxSizer* bSizer65;
 	bSizer65 = new wxBoxSizer( wxVERTICAL );

@@ -596,6 +596,37 @@ class MailingListDlg : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+/// Class CAPListDlg
+///////////////////////////////////////////////////////////////////////////////
+class CAPListDlg : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxListCtrl* m_FieldsList;
+		wxBitmapButton* m_bpButton_Add;
+		wxBitmapButton* m_bpButton_Modify;
+		wxBitmapButton* m_bpButton_Del;
+		wxStaticLine* m_staticline1;
+		wxBitmapButton* m_bpButton_Ok;
+		wxBitmapButton* m_bpButton_Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnAdd( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnModify( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnDel( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		CAPListDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Seleziona il Comune"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,400 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~CAPListDlg();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
 /// Class MailAddressDlg
 ///////////////////////////////////////////////////////////////////////////////
 class MailAddressDlg : public wxDialog 
@@ -628,6 +659,44 @@ class MailAddressDlg : public wxDialog
 		
 		MailAddressDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Indirizzo eMail"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 506,229 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~MailAddressDlg();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class CAPDlg
+///////////////////////////////////////////////////////////////////////////////
+class CAPDlg : public wxDialog 
+{
+	private:
+	
+	protected:
+		enum
+		{
+			ID_CAP = 1000,
+			ID_COMUNE,
+			ID_PROVINCIA
+		};
+		
+		wxStaticText* m_staticText31;
+		wxTextCtrl* m_txtCAP;
+		wxStaticText* m_staticText311;
+		wxTextCtrl* m_txtComune;
+		wxStaticText* m_staticText3111;
+		wxTextCtrl* m_txtProvincia;
+		wxStaticLine* m_staticline1;
+		wxBitmapButton* m_bpButton_Ok;
+		wxBitmapButton* m_bpButton_Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		CAPDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("CAP"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 506,200 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~CAPDlg();
 	
 };
 
@@ -958,6 +1027,7 @@ class ServiceRegistryDlg : public wxDialog
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
 		virtual void OnCheck( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnPatientSelected( wxListEvent& event ) { event.Skip(); }
 		virtual void OnAddPatient( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnModifyPatient( wxCommandEvent& event ) { event.Skip(); }
@@ -1207,6 +1277,7 @@ class PatientDlg : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
 		
@@ -1356,6 +1427,7 @@ class AddPatient118Dlg : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		virtual void OnCheckBox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
@@ -1449,6 +1521,8 @@ class AddPatientDlg : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
+		virtual void OnEnterCtrl( wxFocusEvent& event ) { event.Skip(); }
 		virtual void OnCheckBox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }

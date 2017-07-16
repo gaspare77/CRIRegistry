@@ -33,6 +33,7 @@ void CRIRegistryMailAddressDlg::OnExitCtrl( wxFocusEvent& event )
         m_eMail->SetValue( m_eMail->GetValue().MakeLower() );
         break;
     }
+    event.Skip();
 }
 
 /////////////////////////////////////////////////////////////////////////////

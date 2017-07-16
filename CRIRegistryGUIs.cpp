@@ -1880,6 +1880,83 @@ MailingListDlg::~MailingListDlg()
 	
 }
 
+CAPListDlg::CAPListDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxSize( 600,400 ), wxDefaultSize );
+	
+	wxBoxSizer* bSizer65;
+	bSizer65 = new wxBoxSizer( wxVERTICAL );
+	
+	wxBoxSizer* bSizer78;
+	bSizer78 = new wxBoxSizer( wxVERTICAL );
+	
+	m_FieldsList = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT );
+	bSizer78->Add( m_FieldsList, 1, wxALL|wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer99;
+	bSizer99 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_bpButton_Add = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Add.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer99->Add( m_bpButton_Add, 0, wxALL, 5 );
+	
+	m_bpButton_Modify = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Modify.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer99->Add( m_bpButton_Modify, 0, wxALL, 5 );
+	
+	m_bpButton_Del = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Del.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer99->Add( m_bpButton_Del, 0, wxALL, 5 );
+	
+	
+	bSizer78->Add( bSizer99, 0, wxEXPAND, 5 );
+	
+	
+	bSizer65->Add( bSizer78, 1, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer781;
+	bSizer781 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticline1 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer781->Add( m_staticline1, 1, wxALL, 5 );
+	
+	
+	bSizer65->Add( bSizer781, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer67;
+	bSizer67 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_bpButton_Ok = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Confirm.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer67->Add( m_bpButton_Ok, 0, wxALL, 5 );
+	
+	m_bpButton_Cancel = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Cancel.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer67->Add( m_bpButton_Cancel, 0, wxALL, 5 );
+	
+	
+	bSizer65->Add( bSizer67, 0, wxALIGN_RIGHT, 5 );
+	
+	
+	this->SetSizer( bSizer65 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	m_bpButton_Add->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnAdd ), NULL, this );
+	m_bpButton_Modify->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnModify ), NULL, this );
+	m_bpButton_Del->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnDel ), NULL, this );
+	m_bpButton_Ok->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnOk ), NULL, this );
+	m_bpButton_Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnCancel ), NULL, this );
+}
+
+CAPListDlg::~CAPListDlg()
+{
+	// Disconnect Events
+	m_bpButton_Add->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnAdd ), NULL, this );
+	m_bpButton_Modify->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnModify ), NULL, this );
+	m_bpButton_Del->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnDel ), NULL, this );
+	m_bpButton_Ok->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnOk ), NULL, this );
+	m_bpButton_Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPListDlg::OnCancel ), NULL, this );
+	
+}
+
 MailAddressDlg::MailAddressDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxSize( 500,220 ), wxDefaultSize );
@@ -1964,6 +2041,99 @@ MailAddressDlg::~MailAddressDlg()
 	m_eMail->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( MailAddressDlg::OnExitCtrl ), NULL, this );
 	m_bpButton_Ok->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MailAddressDlg::OnOk ), NULL, this );
 	m_bpButton_Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MailAddressDlg::OnCancel ), NULL, this );
+	
+}
+
+CAPDlg::CAPDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxSize( 500,200 ), wxDefaultSize );
+	
+	wxBoxSizer* bSizer36;
+	bSizer36 = new wxBoxSizer( wxVERTICAL );
+	
+	wxBoxSizer* bSizer37;
+	bSizer37 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText31 = new wxStaticText( this, wxID_ANY, _("CAP"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText31->Wrap( -1 );
+	bSizer37->Add( m_staticText31, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_txtCAP = new wxTextCtrl( this, ID_CAP, wxEmptyString, wxDefaultPosition, wxSize( 65,-1 ), wxTE_CENTRE );
+	bSizer37->Add( m_txtCAP, 0, wxALL, 5 );
+	
+	
+	bSizer36->Add( bSizer37, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer371;
+	bSizer371 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText311 = new wxStaticText( this, wxID_ANY, _("Comune"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText311->Wrap( -1 );
+	bSizer371->Add( m_staticText311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_txtComune = new wxTextCtrl( this, ID_COMUNE, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer371->Add( m_txtComune, 1, wxALL, 5 );
+	
+	
+	bSizer36->Add( bSizer371, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer3711;
+	bSizer3711 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText3111 = new wxStaticText( this, wxID_ANY, _("Provincia"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticText3111->Wrap( -1 );
+	bSizer3711->Add( m_staticText3111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_txtProvincia = new wxTextCtrl( this, ID_PROVINCIA, wxEmptyString, wxDefaultPosition, wxSize( 65,-1 ), wxTE_CENTRE );
+	m_txtProvincia->SetMaxLength( 2 ); 
+	bSizer3711->Add( m_txtProvincia, 0, wxALL, 5 );
+	
+	
+	bSizer36->Add( bSizer3711, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer78;
+	bSizer78 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticline1 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer78->Add( m_staticline1, 1, wxALL, 5 );
+	
+	
+	bSizer36->Add( bSizer78, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer39;
+	bSizer39 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_bpButton_Ok = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Confirm.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer39->Add( m_bpButton_Ok, 0, wxALL, 5 );
+	
+	m_bpButton_Cancel = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Cancel.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer39->Add( m_bpButton_Cancel, 0, wxALL, 5 );
+	
+	
+	bSizer36->Add( bSizer39, 1, wxALIGN_RIGHT, 5 );
+	
+	
+	this->SetSizer( bSizer36 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	m_txtCAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_txtComune->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_txtProvincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_bpButton_Ok->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPDlg::OnOk ), NULL, this );
+	m_bpButton_Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPDlg::OnCancel ), NULL, this );
+}
+
+CAPDlg::~CAPDlg()
+{
+	// Disconnect Events
+	m_txtCAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_txtComune->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_txtProvincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( CAPDlg::OnExitCtrl ), NULL, this );
+	m_bpButton_Ok->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPDlg::OnOk ), NULL, this );
+	m_bpButton_Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CAPDlg::OnCancel ), NULL, this );
 	
 }
 
@@ -2611,7 +2781,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_panel1->SetSizer( bSizer187 );
 	m_panel1->Layout();
 	bSizer187->Fit( m_panel1 );
-	m_notebook->AddPage( m_panel1, _("Richiesto"), false );
+	m_notebook->AddPage( m_panel1, _("Richiesto"), true );
 	m_panel2 = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer1652;
 	bSizer1652 = new wxBoxSizer( wxVERTICAL );
@@ -3291,7 +3461,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_panel3->SetSizer( bSizer189 );
 	m_panel3->Layout();
 	bSizer189->Fit( m_panel3 );
-	m_notebook->AddPage( m_panel3, _("Pazienti"), true );
+	m_notebook->AddPage( m_panel3, _("Pazienti"), false );
 	m_panel4 = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer191;
 	bSizer191 = new wxBoxSizer( wxHORIZONTAL );
@@ -3406,6 +3576,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_NumScheda118->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_AltraTipologia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
+	m_LuogoIntervento_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( ServiceRegistryDlg::OnKeyUp ), NULL, this );
 	m_LuogoIntervento_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
@@ -3414,6 +3585,7 @@ ServiceRegistryDlg::ServiceRegistryDlg( wxWindow* parent, wxWindowID id, const w
 	m_Richiesto_CF_PIVA->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
+	m_Richiesto_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( ServiceRegistryDlg::OnKeyUp ), NULL, this );
 	m_Richiesto_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
@@ -3461,6 +3633,7 @@ ServiceRegistryDlg::~ServiceRegistryDlg()
 	m_NumScheda118->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_AltraTipologia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
+	m_LuogoIntervento_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( ServiceRegistryDlg::OnKeyUp ), NULL, this );
 	m_LuogoIntervento_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_LuogoIntervento_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
@@ -3469,6 +3642,7 @@ ServiceRegistryDlg::~ServiceRegistryDlg()
 	m_Richiesto_CF_PIVA->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
+	m_Richiesto_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( ServiceRegistryDlg::OnKeyUp ), NULL, this );
 	m_Richiesto_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
 	m_Richiesto_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( ServiceRegistryDlg::OnExitCtrl ), NULL, this );
@@ -4288,12 +4462,14 @@ PatientDlg::PatientDlg( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_Eta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( PatientDlg::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Cittadinanza->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_MotivoDelTrasporto->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
+	m_Trasportato_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( PatientDlg::OnKeyUp ), NULL, this );
 	m_Trasportato_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
@@ -4314,12 +4490,14 @@ PatientDlg::~PatientDlg()
 	m_Eta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( PatientDlg::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Cittadinanza->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_MotivoDelTrasporto->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
+	m_Trasportato_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( PatientDlg::OnKeyUp ), NULL, this );
 	m_Trasportato_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
 	m_Trasportato_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( PatientDlg::OnExitCtrl ), NULL, this );
@@ -4876,6 +5054,7 @@ AddPatient118Dlg::AddPatient118Dlg( wxWindow* parent, wxWindowID id, const wxStr
 	m_Eta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( AddPatient118Dlg::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
@@ -4903,6 +5082,7 @@ AddPatient118Dlg::~AddPatient118Dlg()
 	m_Eta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( AddPatient118Dlg::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatient118Dlg::OnExitCtrl ), NULL, this );
@@ -5203,7 +5383,9 @@ AddPatientDlg::AddPatientDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	m_Eta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( AddPatientDlg::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_SET_FOCUS, wxFocusEventHandler( AddPatientDlg::OnEnterCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Cittadinanza->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
@@ -5229,7 +5411,9 @@ AddPatientDlg::~AddPatientDlg()
 	m_Eta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( AddPatientDlg::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_SET_FOCUS, wxFocusEventHandler( AddPatientDlg::OnEnterCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );
 	m_Cittadinanza->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( AddPatientDlg::OnExitCtrl ), NULL, this );

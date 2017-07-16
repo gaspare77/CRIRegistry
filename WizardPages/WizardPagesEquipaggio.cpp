@@ -49,7 +49,12 @@ void WizardPagesEquipaggio::OnChoice( wxCommandEvent& event )
 //
 void WizardPagesEquipaggio::OnAdd( wxCommandEvent& event )
 {
-	CRIRegistryCrewDlg dlg( this );
+	if ( m_Mezzo->GetStringSelection().IsEmpty() )
+    {
+        return;
+    }
+
+    CRIRegistryCrewDlg dlg( this );
 	if ( dlg.ShowModal() == wxID_OK )
 	{
 		m_pService->AddCrew( dlg.GetCrew() );

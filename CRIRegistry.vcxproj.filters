@@ -236,6 +236,12 @@
     <ClInclude Include="CRIRegistryHtmlFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CRIRegistryCAPListDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCAPDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbClass\CFleet.cpp">
@@ -449,6 +455,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CRIRegistryHtmlFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCAPListDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCAPDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

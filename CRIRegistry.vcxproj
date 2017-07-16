@@ -191,6 +191,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CRIRegistryAddCrewDlg.h" />
+    <ClInclude Include="CRIRegistryCAPDlg.h" />
+    <ClInclude Include="CRIRegistryCAPListDlg.h" />
     <ClInclude Include="CRIRegistryCodeSelectionDlg.h" />
     <ClInclude Include="CRIRegistryComunicationDlg.h" />
     <ClInclude Include="CRIRegistryHtmlFrame.h" />
@@ -268,6 +270,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CRIRegistryAddCrewDlg.cpp" />
+    <ClCompile Include="CRIRegistryCAPDlg.cpp" />
+    <ClCompile Include="CRIRegistryCAPListDlg.cpp" />
     <ClCompile Include="CRIRegistryCodeSelectionDlg.cpp" />
     <ClCompile Include="CRIRegistryComunicationDlg.cpp" />
     <ClCompile Include="CRIRegistryHtmlFrame.cpp" />

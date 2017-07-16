@@ -127,6 +127,32 @@ void WizardPagesLuogoIntervento::OnExitCtrl( wxFocusEvent& event )
 /////////////////////////////////////////////////////////////////////////////
 //
 //
+void WizardPagesLuogoIntervento::OnKeyUp( wxKeyEvent& event )
+{
+	switch ( event.GetId() )
+	{
+		case ID_CAP:
+            if ( event.GetKeyCode() == WXK_F1 )
+            {
+                CRIRegistryCAPListDlg dlg(this);
+                if ( dlg.ShowModal() == wxID_OK )
+                {
+                    m_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                    m_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                    m_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                    m_Provincia->SetFocus();
+                    return;
+                }
+            }
+            break;
+	}
+
+	event.Skip();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//
 void WizardPagesLuogoIntervento::OnEnter()
 {
 }

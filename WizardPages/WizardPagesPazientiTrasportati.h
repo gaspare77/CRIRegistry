@@ -9,6 +9,7 @@ wxFormBuilder.
 
 #include "../CRIRegistryWizardPagesGUIs.h"
 #include "../CRIRegistryAddPatientDlg.h"
+#include "../CRIRegistryCAPListDlg.h"
 #include "../dbClass/CService.h"
 #include "WizardPagesUtilizzoMezzo.h"
 

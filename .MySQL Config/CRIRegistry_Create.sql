@@ -469,6 +469,20 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
+-- Table `cri`.`CAP_List`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `CAP_List` (
+  `Id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `CAP` INT(10) UNSIGNED NOT NULL,
+  `Comune` VARCHAR(45) NOT NULL,
+  `Provincia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
+ENGINE = InnoDB;
+DEFAULT CHARACTER SET = utf8;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

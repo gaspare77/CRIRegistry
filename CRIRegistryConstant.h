@@ -32,6 +32,7 @@
 #define TABLE_LOCK                          _T("Table_Lock")
 #define TABLE_COMUNICAZIONI                 _T("Comunicazioni")
 #define TABLE_MAILING_LIST                  _T("Mailing_List")
+#define TABLE_CAP_LIST                      _T("CAP_List")
 
 // ================================================================================
 // DataBase Fields 
@@ -94,6 +95,7 @@
 #define FIELD_CIVICO                        _T("Civico")
 #define FIELD_CAP                           _T("CAP")
 #define FIELD_CITTA                         _T("Citta")             
+#define FIELD_COMUNE                        _T("Comune")             
 #define FIELD_PROVINCIA                     _T("Provincia")         
 #define FIELD_STATO                         _T("Stato")
 #define FIELD_CITTADINANZA                  _T("Cittadinanza")

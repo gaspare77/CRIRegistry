@@ -240,6 +240,7 @@ class Paziente : public MyWizardPage
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		
 	
 	public:
@@ -291,6 +292,7 @@ class Richiedente : public MyWizardPage
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnEnterCtrl( wxFocusEvent& event ) { event.Skip(); }
 		
 	
 	public:
@@ -334,6 +336,7 @@ class LuogoIntervento : public MyWizardPage
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnCheck( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		
 	
 	public:
@@ -384,6 +387,7 @@ class LuogoIntervento118 : public MyWizardPage
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnCheck( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		
 	
 	public:
@@ -515,6 +519,7 @@ class LuogoTrasportato : public MyWizardPage
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnCheck( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
+		virtual void OnKeyUp( wxKeyEvent& event ) { event.Skip(); }
 		
 	
 	public:

@@ -169,6 +169,46 @@ void CRIRegistryPatientDlg::OnExitCtrl( wxFocusEvent& event )
 /////////////////////////////////////////////////////////////////////////////
 //
 //
+void CRIRegistryPatientDlg::OnKeyUp( wxKeyEvent& event )
+{
+	switch ( event.GetId() )
+	{
+    case ID_CAP:
+        if ( event.GetKeyCode() == WXK_F1 )
+        {
+            CRIRegistryCAPListDlg dlg(this);
+            if ( dlg.ShowModal() == wxID_OK )
+            {
+                m_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                m_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                m_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                m_Provincia->SetFocus();
+                return;
+            }
+        }
+        break;
+    case ID_TRASPORTATO_CAP:
+        if ( event.GetKeyCode() == WXK_F1 )
+        {
+            CRIRegistryCAPListDlg dlg(this);
+            if ( dlg.ShowModal() == wxID_OK )
+            {
+                m_Trasportato_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                m_Trasportato_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                m_Trasportato_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                m_Trasportato_Provincia->SetFocus();
+                return;
+            }
+        }
+        break;
+	}
+
+	event.Skip();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//
 void CRIRegistryPatientDlg::OnOk( wxCommandEvent& event )
 {
     if ( m_Cognome->GetValue().IsEmpty() )

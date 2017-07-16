@@ -52,6 +52,32 @@ void WizardPagesRichiedente::OnExitCtrl( wxFocusEvent& event )
 /////////////////////////////////////////////////////////////////////////////
 //
 //
+void WizardPagesRichiedente::OnKeyUp( wxKeyEvent& event )
+{
+	switch ( event.GetId() )
+	{
+		case ID_CAP:
+            if ( event.GetKeyCode() == WXK_F1 )
+            {
+                CRIRegistryCAPListDlg dlg(this);
+                if ( dlg.ShowModal() == wxID_OK )
+                {
+                    m_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                    m_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                    m_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                    m_Provincia->SetFocus();
+                    return;
+                }
+            }
+            break;
+	}
+
+	event.Skip();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//
 void WizardPagesRichiedente::OnEnter()
 {
 	m_Nominativo->SetValue( m_pService->GetField(FIELD_RICHIESTO_NOMINATIVO).GetStringValue() );

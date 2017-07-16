@@ -620,6 +620,7 @@ Paziente::Paziente( wxWindow* parent, wxWindowID id, const wxPoint& pos, const w
 	m_Eta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( Paziente::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
@@ -638,6 +639,7 @@ Paziente::~Paziente()
 	m_Eta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( Paziente::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Paziente::OnExitCtrl ), NULL, this );
@@ -778,6 +780,7 @@ Richiedente::Richiedente( wxWindow* parent, wxWindowID id, const wxPoint& pos, c
 	m_Indirizzo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Civico->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_SET_FOCUS, wxFocusEventHandler( Richiedente::OnEnterCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Importo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
@@ -791,6 +794,7 @@ Richiedente::~Richiedente()
 	m_Indirizzo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Civico->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_SET_FOCUS, wxFocusEventHandler( Richiedente::OnEnterCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
 	m_Importo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( Richiedente::OnExitCtrl ), NULL, this );
@@ -886,6 +890,7 @@ LuogoIntervento::LuogoIntervento( wxWindow* parent, wxWindowID id, const wxPoint
 	m_Ospedale_Checked->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento::OnCheck ), NULL, this );
 	m_AltroLuogo_Checked->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento::OnCheck ), NULL, this );
 	m_Luogo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoIntervento::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
@@ -898,6 +903,7 @@ LuogoIntervento::~LuogoIntervento()
 	m_Ospedale_Checked->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento::OnCheck ), NULL, this );
 	m_AltroLuogo_Checked->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento::OnCheck ), NULL, this );
 	m_Luogo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoIntervento::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento::OnExitCtrl ), NULL, this );
@@ -1022,6 +1028,7 @@ LuogoIntervento118::LuogoIntervento118( wxWindow* parent, wxWindowID id, const w
 	// Connect Events
 	m_AltroLuogo_Checked->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento118::OnCheck ), NULL, this );
 	m_Luogo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoIntervento118::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
@@ -1035,6 +1042,7 @@ LuogoIntervento118::~LuogoIntervento118()
 	// Disconnect Events
 	m_AltroLuogo_Checked->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoIntervento118::OnCheck ), NULL, this );
 	m_Luogo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoIntervento118::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoIntervento118::OnExitCtrl ), NULL, this );
@@ -1385,6 +1393,7 @@ LuogoTrasportato::LuogoTrasportato( wxWindow* parent, wxWindowID id, const wxPoi
 	m_Ospedale_Checked->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoTrasportato::OnCheck ), NULL, this );
 	m_AltroLuogo_Checked->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoTrasportato::OnCheck ), NULL, this );
 	m_Luogo->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
+	m_CAP->Connect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoTrasportato::OnKeyUp ), NULL, this );
 	m_CAP->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
 	m_Citta->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
 	m_Provincia->Connect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
@@ -1397,6 +1406,7 @@ LuogoTrasportato::~LuogoTrasportato()
 	m_Ospedale_Checked->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoTrasportato::OnCheck ), NULL, this );
 	m_AltroLuogo_Checked->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LuogoTrasportato::OnCheck ), NULL, this );
 	m_Luogo->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
+	m_CAP->Disconnect( wxEVT_KEY_UP, wxKeyEventHandler( LuogoTrasportato::OnKeyUp ), NULL, this );
 	m_CAP->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
 	m_Citta->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );
 	m_Provincia->Disconnect( wxEVT_KILL_FOCUS, wxFocusEventHandler( LuogoTrasportato::OnExitCtrl ), NULL, this );

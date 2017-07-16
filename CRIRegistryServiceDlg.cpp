@@ -162,6 +162,47 @@ void CRIRegistryServiceDlg::OnExitCtrl( wxFocusEvent& event )
 /////////////////////////////////////////////////////////////////////////////
 //
 //
+void CRIRegistryServiceDlg::OnKeyUp( wxKeyEvent& event )
+{
+	switch ( event.GetId() )
+	{
+		case ID_RICHIESTO_CAP:
+            if ( event.GetKeyCode() == WXK_F1 )
+            {
+                CRIRegistryCAPListDlg dlg(this);
+                if ( dlg.ShowModal() == wxID_OK )
+                {
+                    m_Richiesto_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                    m_Richiesto_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                    m_Richiesto_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                    m_Richiesto_Provincia->SetFocus();
+                    return;
+                }
+            }
+            break;
+
+		case ID_LUOGOINTERVENTO_CAP:
+            if ( event.GetKeyCode() == WXK_F1 )
+            {
+                CRIRegistryCAPListDlg dlg(this);
+                if ( dlg.ShowModal() == wxID_OK )
+                {
+                    m_LuogoIntervento_CAP->SetValue( dlg.FieldSelect()->GetField(FIELD_CAP).GetStringValue() );
+                    m_LuogoIntervento_Citta->SetValue( dlg.FieldSelect()->GetField(FIELD_COMUNE).GetStringValue() );
+                    m_LuogoIntervento_Provincia->SetValue( dlg.FieldSelect()->GetField(FIELD_PROVINCIA).GetStringValue() );
+                    m_LuogoIntervento_Provincia->SetFocus();
+                    return;
+                }
+            }
+            break;
+	}
+
+	event.Skip();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//
 void CRIRegistryServiceDlg::OnCheck( wxCommandEvent& event )
 {
 	UpdateRequestedCtrl();
