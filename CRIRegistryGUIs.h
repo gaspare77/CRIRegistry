@@ -76,6 +76,7 @@ class MainFrame : public wxFrame
 			ID_OPEN_VEHICLE_TYPE,
 			ID_OPEN_REASONS_REFUSING_TRANSPORT,
 			ID_OPEN_MAILING_LIST,
+			ID_EDIT_CHECK_LIST,
 			ID_PRESENCE_IN,
 			ID_PRESENCE_OUT,
 			ID_MODIFY_PRESENCE,
@@ -152,6 +153,7 @@ class MainFrame : public wxFrame
 		wxBitmapButton* m_bpButton_SelectShift;
 		wxBitmapButton* m_bpButton_SelectService;
 		wxBitmapButton* m_bpButton_SelectComunication;
+		wxBitmapButton* m_bpButton_SelectCheckList;
 		wxBitmapButton* m_bpButton_FindUsers;
 		wxStaticText* m_Calendar;
 		wxBitmapButton* m_bpButton_Close;
@@ -175,6 +177,7 @@ class MainFrame : public wxFrame
 		virtual void OnOpenVehicleType( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOpenReasonsRefusingTransport( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOpenMailingList( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEditCheckList( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnPresenceIn( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnPresenceOut( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnModifyPresence( wxCommandEvent& event ) { event.Skip(); }
@@ -216,6 +219,7 @@ class MainFrame : public wxFrame
 		virtual void OnSelectShift( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSelectService( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSelectComunication( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnShowCheckList( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSelectFindUsers( wxCommandEvent& event ) { event.Skip(); }
 		
 	

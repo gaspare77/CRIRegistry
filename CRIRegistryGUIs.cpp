@@ -99,6 +99,10 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_menu_OpenMailingList = new wxMenuItem( m_menu_Data, ID_OPEN_MAILING_LIST, wxString( _("Mailing List Comunicazioni") ) , _("Visualizza/Modifica la mailing list per le comunicazioni di servizio"), wxITEM_NORMAL );
 	m_menu_Data->Append( m_menu_OpenMailingList );
 	
+	wxMenuItem* m_menu_EditCheckList;
+	m_menu_EditCheckList = new wxMenuItem( m_menu_Data, ID_EDIT_CHECK_LIST, wxString( _("Edit Check List") ) , _("Modifica le voci della Check List"), wxITEM_NORMAL );
+	m_menu_Data->Append( m_menu_EditCheckList );
+	
 	m_menubar->Append( m_menu_Data, _("&Dati") ); 
 	
 	m_menu_Presence = new wxMenu();
@@ -470,6 +474,11 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	
 	bSizer44->Add( m_bpButton_SelectComunication, 0, wxALL, 5 );
 	
+	m_bpButton_SelectCheckList = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_CheckList.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( -1,-1 ), wxBU_AUTODRAW );
+	m_bpButton_SelectCheckList->SetToolTip( _("Visualizza la Check List del Centralino") );
+	
+	bSizer44->Add( m_bpButton_SelectCheckList, 0, wxALL, 5 );
+	
 	m_bpButton_FindUsers = new wxBitmapButton( this, wxID_ANY, wxBitmap( wxT("Res/bp_Users_Search.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxSize( 72,72 ), wxBU_AUTODRAW );
 	m_bpButton_FindUsers->SetToolTip( _("Ricerca Volontari Disponibili") );
 	
@@ -518,6 +527,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Connect( m_menu_OpenVehicleType->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenVehicleType ) );
 	this->Connect( m_menu_OpenReasonsRefusingTransport->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenReasonsRefusingTransport ) );
 	this->Connect( m_menu_OpenMailingList->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenMailingList ) );
+	this->Connect( m_menu_EditCheckList->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnEditCheckList ) );
 	this->Connect( m_menu_PresenceIn->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnPresenceIn ) );
 	this->Connect( m_menu_PresenceOut->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnPresenceOut ) );
 	this->Connect( m_menu_ModifyPresence->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnModifyPresence ) );
@@ -578,6 +588,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_bpButton_SelectShift->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectShift ), NULL, this );
 	m_bpButton_SelectService->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectService ), NULL, this );
 	m_bpButton_SelectComunication->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectComunication ), NULL, this );
+	m_bpButton_SelectCheckList->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnShowCheckList ), NULL, this );
 	m_bpButton_FindUsers->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectFindUsers ), NULL, this );
 	m_bpButton_Close->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnQuit ), NULL, this );
 }
@@ -603,6 +614,7 @@ MainFrame::~MainFrame()
 	this->Disconnect( ID_OPEN_VEHICLE_TYPE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenVehicleType ) );
 	this->Disconnect( ID_OPEN_REASONS_REFUSING_TRANSPORT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenReasonsRefusingTransport ) );
 	this->Disconnect( ID_OPEN_MAILING_LIST, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnOpenMailingList ) );
+	this->Disconnect( ID_EDIT_CHECK_LIST, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnEditCheckList ) );
 	this->Disconnect( ID_PRESENCE_IN, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnPresenceIn ) );
 	this->Disconnect( ID_PRESENCE_OUT, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnPresenceOut ) );
 	this->Disconnect( ID_MODIFY_PRESENCE, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::OnModifyPresence ) );
@@ -663,6 +675,7 @@ MainFrame::~MainFrame()
 	m_bpButton_SelectShift->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectShift ), NULL, this );
 	m_bpButton_SelectService->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectService ), NULL, this );
 	m_bpButton_SelectComunication->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectComunication ), NULL, this );
+	m_bpButton_SelectCheckList->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnShowCheckList ), NULL, this );
 	m_bpButton_FindUsers->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnSelectFindUsers ), NULL, this );
 	m_bpButton_Close->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::OnQuit ), NULL, this );
 	

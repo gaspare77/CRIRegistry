@@ -33,6 +33,11 @@
 #define TABLE_COMUNICAZIONI                 _T("Comunicazioni")
 #define TABLE_MAILING_LIST                  _T("Mailing_List")
 #define TABLE_CAP_LIST                      _T("CAP_List")
+#define TABLE_CHECK_LIST                    _T("Check_List")
+#define TABLE_CHECK_LIST_ITEM               _T("Check_List_Item")
+#define TABLE_CHECK_LIST_POSITION           _T("Check_List_Position")
+#define TABLE_CHECK_LIST_TYPE               _T("Check_List_Type");
+#define TABLE_CHECK_LIST_TIME               _T("Check_List_Time");
 
 // ================================================================================
 // DataBase Fields 
@@ -151,6 +156,12 @@
 #define FIELD_LETTA                         _T("Letta")
 #define FIELD_EMAIL                         _T("eMail")
 #define FIELD_PRIVATA                       _T("Privata")
+#define FIELD_VOLONTARIO                    _T("Volontario")
+#define FIELD_VERIFICATO                    _T("Verificato")
+#define FIELD_VALORE                        _T("Valore")
+#define FIELD_POSIZIONE                     _T("Posizione")
+#define FIELD_INIZIO                        _T("Inizio")
+#define FIELD_FINE                          _T("Fine")
 
 // ================================================================================
 //

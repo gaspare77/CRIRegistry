@@ -3,7 +3,7 @@
 #define __SHOW_DATE_TIME__  m_Calendar->SetLabel( wxDateTime::Now().Format( _("%H:%M\n%A %d %B %Y") ) );
 
 #define __SINCRONIZE_TIMER__ \
-    VariableRestorer<bool> TimerRestorer( &m_bStopTimer ); \
+    VariableRestorer<volatile bool> TimerRestorer( &m_bStopTimer ); \
     if ( m_bOnTimer ) \
         return; \
     m_bStopTimer = true;
@@ -1018,6 +1018,18 @@ void CRIRegistryMainFrame::OnOpenMailingList( wxCommandEvent& event )
     CRIRegistryMailingListDlg dlg( this );
     dlg.ShowModal();
 }
+
+/////////////////////////////////////////////////////////////////////////////
+// 
+// 
+void CRIRegistryMainFrame::OnEditCheckList( wxCommandEvent& event )
+{
+    __SINCRONIZE_TIMER__
+    
+    CRIRegistryCheckListEditDlg dlg(this);
+    dlg.ShowModal();
+}
+
 
 /////////////////////////////////////////////////////////////////////////////
 // 
@@ -3167,4 +3179,15 @@ void CRIRegistryMainFrame::LogInUser()
             INFO_MESSAGE(wxString::Format(_("Hai %d %s da leggere"), num, txt.c_str()));
         }
     }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//
+void CRIRegistryMainFrame::OnShowCheckList( wxCommandEvent& event )
+{
+    __SINCRONIZE_TIMER__
+
+    CRIRegistryCheckListDlg dlg(this);
+    dlg.ShowModal();
 }

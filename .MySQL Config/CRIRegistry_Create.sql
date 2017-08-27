@@ -225,27 +225,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `registroservizi_equipaggi`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `registroservizi_equipaggi` (
-  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `RegistroServizi_Id` INT(10) UNSIGNED NOT NULL ,
-  `Cognome` VARCHAR(100) NULL DEFAULT NULL ,
-  `Nome` VARCHAR(100) NULL DEFAULT NULL ,
-  `Qualifica` VARCHAR(100) NULL DEFAULT NULL ,
-  `QualificaStato` VARCHAR(100) NULL DEFAULT NULL ,
-  PRIMARY KEY (`Id`, `RegistroServizi_Id`) ,
-  INDEX `fk_RegistroServizi_Equipaggi_idx` (`RegistroServizi_Id` ASC) ,
-  CONSTRAINT `fk_RegistroServizi_Equipaggi`
-    FOREIGN KEY (`RegistroServizi_Id` )
-    REFERENCES `registroservizi` (`Id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `registroservizi_pazienti`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `registroservizi_pazienti` (
@@ -312,6 +291,27 @@ CREATE  TABLE IF NOT EXISTS `registroservizi_pazienti_dinamiche` (
   CONSTRAINT `fk_RegistroServizi_Pazienti_Dinamiche`
     FOREIGN KEY (`RegistroServizi_Pazienti_Id` , `RegistroServizi_Id` )
     REFERENCES `registroservizi_pazienti` (`Id` , `RegistroServizi_Id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `registroservizi_equipaggi`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `registroservizi_equipaggi` (
+  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `RegistroServizi_Id` INT(10) UNSIGNED NOT NULL ,
+  `Cognome` VARCHAR(100) NULL DEFAULT NULL ,
+  `Nome` VARCHAR(100) NULL DEFAULT NULL ,
+  `Qualifica` VARCHAR(100) NULL DEFAULT NULL ,
+  `QualificaStato` VARCHAR(100) NULL DEFAULT NULL ,
+  PRIMARY KEY (`Id`, `RegistroServizi_Id`) ,
+  INDEX `fk_RegistroServizi_Equipaggi_idx` (`RegistroServizi_Id` ASC) ,
+  CONSTRAINT `fk_RegistroServizi_Equipaggi`
+    FOREIGN KEY (`RegistroServizi_Id` )
+    REFERENCES `registroservizi` (`Id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
@@ -479,7 +479,98 @@ CREATE TABLE IF NOT EXISTS `CAP_List` (
   `Provincia` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+-- -----------------------------------------------------
+-- Table `cri`.`check_list_time`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cri`.`check_list_time` (
+  `Id` INT(10) NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NOT NULL,
+  `Inizio` TIME NOT NULL,
+  `Fine` TIME NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `cri`.`check_list_position`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cri`.`check_list_position` (
+  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Posizione` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `cri`.`check_list_type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cri`.`check_list_type` (
+  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Tipo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `cri`.`check_list_item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cri`.`check_list_item` (
+  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(45) NOT NULL,
+  `Gruppo` VARCHAR(45) NOT NULL,
+  `check_list_position_Id` INT(10) UNSIGNED NOT NULL,
+  `check_list_time_Id` INT(10) NOT NULL,
+  `check_list_type_Id` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`Id`, `check_list_position_Id`, `check_list_time_Id`, `check_list_type_Id`),
+  INDEX `fk_check_list_item_check_list_position1_idx` (`check_list_position_Id` ASC),
+  INDEX `fk_check_list_item_check_list_time1_idx` (`check_list_time_Id` ASC),
+  INDEX `fk_check_list_item_check_list_type1_idx` (`check_list_type_Id` ASC),
+  CONSTRAINT `fk_check_list_item_check_list_position1`
+    FOREIGN KEY (`check_list_position_Id`)
+    REFERENCES `cri`.`check_list_position` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_check_list_item_check_list_time1`
+    FOREIGN KEY (`check_list_time_Id`)
+    REFERENCES `cri`.`check_list_time` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_check_list_item_check_list_type1`
+    FOREIGN KEY (`check_list_type_Id`)
+    REFERENCES `cri`.`check_list_type` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `cri`.`check_list`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cri`.`check_list` (
+  `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Data` DATETIME NOT NULL,
+  `Volontario` VARCHAR(45) NOT NULL,
+  `check_list_item_Id` INT(10) UNSIGNED NOT NULL,
+  `Verificato` TINYINT(1) NULL DEFAULT 0,
+  `Valore` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`, `check_list_item_Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
+  INDEX `fk_check_list_check_list_item1_idx` (`check_list_item_Id` ASC),
+  CONSTRAINT `fk_check_list_check_list_item`
+    FOREIGN KEY (`check_list_item_Id`)
+    REFERENCES `cri`.`check_list_item` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 

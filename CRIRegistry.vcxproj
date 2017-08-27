@@ -193,6 +193,12 @@
     <ClInclude Include="CRIRegistryAddCrewDlg.h" />
     <ClInclude Include="CRIRegistryCAPDlg.h" />
     <ClInclude Include="CRIRegistryCAPListDlg.h" />
+    <ClInclude Include="CRIRegistryCheckListAddItemDlg.h" />
+    <ClInclude Include="CRIRegistryCheckListDlg.h" />
+    <ClInclude Include="CRIRegistryCheckListEditDlg.h" />
+    <ClInclude Include="CRIRegistryCheckListPagesGUIs.h" />
+    <ClInclude Include="CRIRegistryCheckListTimeDlg.h" />
+    <ClInclude Include="CRIRegistryCheckListTimeIntervalDlg.h" />
     <ClInclude Include="CRIRegistryCodeSelectionDlg.h" />
     <ClInclude Include="CRIRegistryComunicationDlg.h" />
     <ClInclude Include="CRIRegistryHtmlFrame.h" />
@@ -272,6 +278,12 @@
     <ClCompile Include="CRIRegistryAddCrewDlg.cpp" />
     <ClCompile Include="CRIRegistryCAPDlg.cpp" />
     <ClCompile Include="CRIRegistryCAPListDlg.cpp" />
+    <ClCompile Include="CRIRegistryCheckListAddItemDlg.cpp" />
+    <ClCompile Include="CRIRegistryCheckListDlg.cpp" />
+    <ClCompile Include="CRIRegistryCheckListEditDlg.cpp" />
+    <ClCompile Include="CRIRegistryCheckListPagesGUIs.cpp" />
+    <ClCompile Include="CRIRegistryCheckListTimeDlg.cpp" />
+    <ClCompile Include="CRIRegistryCheckListTimeIntervalDlg.cpp" />
     <ClCompile Include="CRIRegistryCodeSelectionDlg.cpp" />
     <ClCompile Include="CRIRegistryComunicationDlg.cpp" />
     <ClCompile Include="CRIRegistryHtmlFrame.cpp" />

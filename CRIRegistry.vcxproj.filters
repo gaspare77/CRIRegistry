@@ -242,6 +242,24 @@
     <ClInclude Include="CRIRegistryCAPDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListAddItemDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListPagesGUIs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListTimeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListTimeIntervalDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CRIRegistryCheckListEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbClass\CFleet.cpp">
@@ -461,6 +479,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CRIRegistryCAPDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListAddItemDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListPagesGUIs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListTimeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListTimeIntervalDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRIRegistryCheckListEditDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -25,6 +25,7 @@ ShiftIcon					ICON	"res/Icon_Shift.ico"
 PresenceIcon				ICON	"res/Icon_Presence.ico"
 OptionsIcon                 ICON    "res/Icon_Options.ico"
 ComunicationIcon            ICON    "res/Icon_Comunication.ico"
+CheckListIcon               ICON    "res/Icon_CheckList.ico"
 
 ShiftStatusIcon000          ICON    "res/Icon_ShiftStatus000.ico"
 
