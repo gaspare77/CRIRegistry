@@ -190,6 +190,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CheckListManager.h" />
     <ClInclude Include="CRIRegistryAddCrewDlg.h" />
     <ClInclude Include="CRIRegistryCAPDlg.h" />
     <ClInclude Include="CRIRegistryCAPListDlg.h" />
@@ -275,6 +276,7 @@
     <ClInclude Include="WizardPages\WizardPagesUtilizzoMezzo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CheckListManager.cpp" />
     <ClCompile Include="CRIRegistryAddCrewDlg.cpp" />
     <ClCompile Include="CRIRegistryCAPDlg.cpp" />
     <ClCompile Include="CRIRegistryCAPListDlg.cpp" />

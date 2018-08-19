@@ -3,8 +3,8 @@
 /////////////////////////////////////////////////////////////////////////////
 // 
 //
-CRIRegistryAddFieldsDlg::CRIRegistryAddFieldsDlg( wxWindow* parent, const wxString& table, const wxString& id, const wxString& field ):
-AddFieldsDlg( parent )
+CRIRegistryAddFieldsDlg::CRIRegistryAddFieldsDlg( wxWindow* parent, const wxString& table, const wxString& id, const wxString& field, const wxString& condition ):
+AddFieldsDlg( parent ), m_ItemToAdd( table, id )
 {
     SetIcon( wxICON(EditIcon) ); 
 
@@ -14,10 +14,20 @@ AddFieldsDlg( parent )
 	m_Fields.clear();
 	m_FieldsList->Clear();
 
+	m_ItemToAdd.Add( m_szFieldName, WDT_STRING );
+
     // Lock the Table
     UsersManager::Instance()->LockTable( m_szTable );
 	
-	wxString query = _T("SELECT * FROM ") + m_szTable;
+	wxString query;
+    if (condition.IsEmpty())
+    {
+        query = _T("SELECT * FROM ") + m_szTable;
+    }
+    else
+    {
+        query = _T("SELECT * FROM ") + m_szTable + _T(" WHERE ") + condition;
+    }
 	dbResultSet res;
 	if ( dbSingleton::Instance()->SQLQuery( query, &res ) )
 	{
@@ -44,10 +54,9 @@ CRIRegistryAddFieldsDlg::~CRIRegistryAddFieldsDlg()
 //
 void CRIRegistryAddFieldsDlg::OnAdd( wxCommandEvent& event )
 {
-	dbClass f( m_szTable, m_szIdFieldName );
-	f.Add( m_szFieldName, WDT_STRING );
+    dbClass f(m_ItemToAdd);
 	wxTextEntryDialog dlg( this, _("Inserire il valore del campo da aggiungere"), GetTitle() );
-	dlg.SetValue( f[m_szFieldName].GetStringValue() );
+	dlg.SetValue( wxEmptyString );
 	if ( dlg.ShowModal() == wxID_OK )
 	{
 		f[m_szFieldName] = dlg.GetValue().MakeUpper();

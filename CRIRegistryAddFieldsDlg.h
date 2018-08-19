@@ -25,13 +25,15 @@ protected:
 
 public:
 	/** Constructor */
-	CRIRegistryAddFieldsDlg( wxWindow* parent, const wxString& table, const wxString& id, const wxString& field );
+	CRIRegistryAddFieldsDlg( wxWindow* parent, const wxString& table, const wxString& id, const wxString& field, const wxString& condition = wxEmptyString );
     ~CRIRegistryAddFieldsDlg();
+    dbClass* FieldToAdd(){ return &m_ItemToAdd; }
 
 private:
 	wxString				m_szTable;
 	wxString				m_szIdFieldName;
 	wxString				m_szFieldName;
+    dbClass                 m_ItemToAdd;
 	std::vector<dbClass>	m_Fields;
 	std::vector<dbClass>::iterator GetFieldSelected();
 };

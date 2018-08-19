@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Registro C.R.I."
-!define PRODUCT_VERSION "1.16"
+!define PRODUCT_VERSION "1.19"
 !define PRODUCT_PUBLISHER "Gaspare Faraci"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\CRIRegistry.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"

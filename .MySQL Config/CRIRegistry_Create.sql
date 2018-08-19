@@ -486,6 +486,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cri`.`check_list_time` (
   `Id` INT(10) NOT NULL AUTO_INCREMENT,
+  `Gruppo` VARCHAR(45) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Inizio` TIME NOT NULL,
   `Fine` TIME NOT NULL,
@@ -500,7 +501,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cri`.`check_list_position` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Posizione` VARCHAR(45) NOT NULL,
+  `Gruppo` VARCHAR(45) NOT NULL,
+  `Posizione` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
@@ -524,7 +526,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cri`.`check_list_item` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Nome` VARCHAR(45) NOT NULL,
+  `Nome` VARCHAR(255) NOT NULL,
   `Gruppo` VARCHAR(45) NOT NULL,
   `check_list_position_Id` INT(10) UNSIGNED NOT NULL,
   `check_list_time_Id` INT(10) NOT NULL,
@@ -557,19 +559,19 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cri`.`check_list` (
   `Id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Gruppo` VARCHAR(45) NOT NULL,
+  `Tipo` VARCHAR(45) NOT NULL,
   `Data` DATETIME NOT NULL,
-  `Volontario` VARCHAR(45) NOT NULL,
-  `check_list_item_Id` INT(10) UNSIGNED NOT NULL,
+  `Turno` VARCHAR(45) NOT NULL,
+  `Inizio` TIME NOT NULL,
+  `Fine` TIME NOT NULL,
+  `Posizione` VARCHAR(255) NOT NULL,
+  `Nome` VARCHAR(255) NOT NULL,
   `Verificato` TINYINT(1) NULL DEFAULT 0,
-  `Valore` VARCHAR(45) NULL,
-  PRIMARY KEY (`Id`, `check_list_item_Id`),
-  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC),
-  INDEX `fk_check_list_check_list_item1_idx` (`check_list_item_Id` ASC),
-  CONSTRAINT `fk_check_list_check_list_item`
-    FOREIGN KEY (`check_list_item_Id`)
-    REFERENCES `cri`.`check_list_item` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `Note` TEXT NULL,
+  `Volontario` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Id_UNIQUE` (`Id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 

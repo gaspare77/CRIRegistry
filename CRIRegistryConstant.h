@@ -36,8 +36,8 @@
 #define TABLE_CHECK_LIST                    _T("Check_List")
 #define TABLE_CHECK_LIST_ITEM               _T("Check_List_Item")
 #define TABLE_CHECK_LIST_POSITION           _T("Check_List_Position")
-#define TABLE_CHECK_LIST_TYPE               _T("Check_List_Type");
-#define TABLE_CHECK_LIST_TIME               _T("Check_List_Time");
+#define TABLE_CHECK_LIST_TYPE               _T("Check_List_Type")
+#define TABLE_CHECK_LIST_TIME               _T("Check_List_Time")
 
 // ================================================================================
 // DataBase Fields 
@@ -162,6 +162,7 @@
 #define FIELD_POSIZIONE                     _T("Posizione")
 #define FIELD_INIZIO                        _T("Inizio")
 #define FIELD_FINE                          _T("Fine")
+#define FIELD_TURNO                         _T("Turno")
 
 // ================================================================================
 //

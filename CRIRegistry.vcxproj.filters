@@ -260,6 +260,9 @@
     <ClInclude Include="CRIRegistryCheckListEditDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CheckListManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbClass\CFleet.cpp">
@@ -497,6 +500,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CRIRegistryCheckListEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckListManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -29,7 +29,8 @@
 #include <wx/textctrl.h>
 #include <wx/choice.h>
 #include <wx/checklst.h>
-#include <wx/grid.h>
+#include <wx/treectrl.h>
+#include <wx/scrolwin.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -74,15 +75,15 @@ class CheckListTimeDlg : public wxDialog
 	protected:
 		enum
 		{
-			ID_NOME = 1000,
+			ID_TURNO = 1000,
 			ID_INIZIO,
 			ID_FINE
 		};
 		
 		wxStaticText* m_staticText4;
-		wxTextCtrl* m_textCtrl4;
+		wxTextCtrl* m_Turno;
 		wxStaticText* m_staticText41;
-		wxTextCtrl* m_Inizo;
+		wxTextCtrl* m_Inizio;
 		wxStaticText* m_staticText42;
 		wxTextCtrl* m_Fine;
 		wxStaticLine* m_staticline1;
@@ -97,7 +98,7 @@ class CheckListTimeDlg : public wxDialog
 	
 	public:
 		
-		CheckListTimeDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Intervallo Orari"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 357,213 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		CheckListTimeDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Intervallo Orari Turno"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 357,213 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~CheckListTimeDlg();
 	
 };
@@ -115,31 +116,28 @@ class CheckListAddItemDlg : public wxDialog
 			ID_TESTO = 1000
 		};
 		
-		wxStaticText* m_staticText8;
-		wxChoice* m_Gruppo;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_Testo;
 		wxStaticText* m_staticText91;
 		wxChoice* m_Posizione;
 		wxBitmapButton* m_bpButton_EditPosition;
-		wxStaticText* m_staticText10;
-		wxTextCtrl* m_Testo;
 		wxStaticText* m_staticText13;
 		wxCheckListBox* m_ListaOrari;
-		wxBitmapButton* m_bpButton_EditHours;
 		wxStaticLine* m_staticline1;
 		wxBitmapButton* m_bpButton_Ok;
 		wxBitmapButton* m_bpButton_Cancel;
 		
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnEditPosition( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnExitCtrl( wxFocusEvent& event ) { event.Skip(); }
-		virtual void OnEditHours( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnChoice( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEditPosition( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
 		
 	
 	public:
 		
-		CheckListAddItemDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Voci Inserite nella Check List"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,357 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		CheckListAddItemDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Edit voce inserita nella Check List"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 503,357 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~CheckListAddItemDlg();
 	
 };
@@ -159,19 +157,22 @@ class CheckListEditDlg : public wxDialog
 		
 		wxStaticText* m_staticText14;
 		wxChoice* m_Gruppo;
-		wxListBox* m_Voci;
+		wxTreeCtrl* m_Voci;
 		wxBitmapButton* m_bpButton_Add;
 		wxBitmapButton* m_bpButton_Edit;
 		wxBitmapButton* m_bpButton_Del;
+		wxBitmapButton* m_bpButton_EditHours;
 		wxStaticLine* m_staticline1;
 		wxBitmapButton* m_bpButton_Ok;
 		wxBitmapButton* m_bpButton_Cancel;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnChoice( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnItemActivate( wxTreeEvent& event ) { event.Skip(); }
 		virtual void OnAdd( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnEdit( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnDel( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnEditHours( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
 		
@@ -197,7 +198,8 @@ class CheckListDlg : public wxDialog
 		wxTextCtrl* m_Turno;
 		wxStaticText* m_staticText16;
 		wxTextCtrl* m_Gruppo;
-		wxGrid* m_CheckList;
+		wxScrolledWindow* m_ScrolledWindow;
+		wxBoxSizer* m_Container;
 		wxStaticLine* m_staticline1;
 		wxBitmapButton* m_bpButton_Ok;
 		wxBitmapButton* m_bpButton_Cancel;
@@ -209,7 +211,7 @@ class CheckListDlg : public wxDialog
 	
 	public:
 		
-		CheckListDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Check List"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 645,680 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		CheckListDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Check List"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~CheckListDlg();
 	
 };

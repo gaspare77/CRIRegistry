@@ -8,6 +8,8 @@
         return; \
     m_bStopTimer = true;
 
+#define CHECK_LIST_CENTRALINO _T("CENTRALINO")
+
 /////////////////////////////////////////////////////////////////////////////
 // 
 // 
@@ -159,6 +161,12 @@ void CRIRegistryMainFrame::OnTimer( wxTimerEvent& event )
             AuthenticateUser();
             m_iMinInactivity = 0;
         }
+    }
+
+    // Check the Check-List status
+    if ( UsersManager::Instance()->IsUserLogged() && (UsersManager::Instance()->GetUserLogged().GetPrivileges()>=CENTRALINO) && (UsersManager::Instance()->GetUserLogged().GetPrivileges()<ADMINISTRATOR))
+    {
+        CheckListManager::Instance()->Control(CHECK_LIST_CENTRALINO);
     }
 
     m_bOnTimer = false;
@@ -3060,7 +3068,6 @@ void CRIRegistryMainFrame::SetComunicationSelected( const CComunication& c )
     }
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -3127,6 +3134,7 @@ void CRIRegistryMainFrame::AuthenticateUser()
     m_menu_Data->Enable( ID_OPEN_VEHICLE_TYPE, user.GetPrivileges() > CENTRALINO );
     m_menu_Data->Enable( ID_OPEN_REASONS_REFUSING_TRANSPORT, user.GetPrivileges() > CENTRALINO );
     m_menu_Data->Enable( ID_OPEN_MAILING_LIST, user.GetPrivileges() > CENTRALINO );
+    m_menu_Data->Enable( ID_EDIT_CHECK_LIST, user.GetPrivileges() > CENTRALINO );
 
     m_menu_Comunication->Enable( ID_ADD_COMUNICATION, user.GetPrivileges() >= USER );
     m_menu_Comunication->Enable( ID_DEL_COMUNICATION, user.GetPrivileges() >= USER );
@@ -3169,8 +3177,10 @@ void CRIRegistryMainFrame::LogInUser()
     bool bIsLogged = UsersManager::Instance()->LogIn();
     AuthenticateUser();
     CUser user = UsersManager::Instance()->GetUserLogged();
-    if ( bIsLogged && ((user.GetPrivileges() >= CENTRALINO) && (user.GetPrivileges() < ADMINISTRATOR)) )
+    if ( bIsLogged && (user.GetPrivileges() >= CENTRALINO) && (user.GetPrivileges() < ADMINISTRATOR) )
     {
+        CheckListManager::Instance()->Control(CHECK_LIST_CENTRALINO);
+
         int num = GetComunicationsToRead();
         if ( num > 0 )
         {
@@ -3188,6 +3198,5 @@ void CRIRegistryMainFrame::OnShowCheckList( wxCommandEvent& event )
 {
     __SINCRONIZE_TIMER__
 
-    CRIRegistryCheckListDlg dlg(this);
-    dlg.ShowModal();
+    CheckListManager::Instance()->Show(CHECK_LIST_CENTRALINO);
 }
